@@ -1,0 +1,24 @@
+# This theme was designed from scratch for anyone to use with Hugo mostly
+# as a personal website, portfolio, blog or resume. It features a mininal
+# materialistic design and it's also responsive.
+
+# Visit https://ntinosng.github.io/self/ to see a demo
+
+name = "Self"
+license = "MIT"
+licenselink = "https://github.com/NtinosNG/self/blob/master/LICENSE"
+description = "A simple two-column theme for building a website for yourself."
+homepage = "http://example.com/"
+tags = ["personal","portfolio","blog","resume","curriculum"]
+features = ["responsive","minimal","material"]
+min_version = "0.41"
+
+[author]
+  name = "Konstantinos Bazoukis"
+  homepage = "https://kbazoukis.com"
+
+# If porting an existing theme
+[original]
+  name = ""
+  homepage = ""
+  repo = ""

@@ -1,0 +1,20 @@
+# Your site's URL
+baseURL = "https://example.com/"
+languageCode = "en-us"
+
+# Your site's title
+title = "Self"
+
+theme = "self"
+
+# For displaying the copyright on the footer
+copyright = "&copy; Konstantinos Bazoukis 2018"
+
+# Set a number where pagination starts
+paginate = 10
+
+[params]
+    # Details for the menu section - (for the profile image add an image in 'static/img' folder)
+    profimage = "profile.jpg" 
+    siteName = "Self Theme"
+    description = "Build a simple website for yourself!"

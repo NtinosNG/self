@@ -1,0 +1,78 @@
+<!-- Main container -->
+<main class="ui three column stackable grid container">
+
+    <!-- Main menu-->
+    <section class="five wide center aligned column" id="mainMenu">
+        <div class="ui padded segment mainbg">
+
+            <header>
+                <!-- Site's Image -->
+                <a href="{{ "/" | relURL }}">
+                    <div class="ui centered link card">
+                        <div class="image">
+                            <img src="{{ (printf "/img/%s" $.Site.Params.profimage) | relURL }}">
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Site's title -->
+                <h1>{{ $.Site.Params.siteName }}</h1>
+
+                <!-- Site's subtitle/description -->
+                <h2>{{ $.Site.Params.description }}</h2>
+            </header>
+
+            <br>
+
+            <!-- Site's Navigation -->
+            <nav class="ui container">
+                <div class="ui container">
+                    <a href="posts.html#contentSection" class="ui labeled icon button">
+                        <i class="bookmark large outline icon"></i> Posts
+                    </a>
+                </div>
+
+                <div class="ui container">
+                    <a href="projects.html#contentSection" class="ui labeled icon button">
+                        <i class="code large icon"></i> Projects
+                    </a>
+                </div>
+                <div class="ui container">
+                    <a href="curriculum.html#contentSection" class="ui labeled icon button">
+                        <i class="address card large icon"></i> Curriculum
+                    </a>
+                </div>
+            </nav>
+
+            <br>
+
+            <!-- Social Buttons -->
+            <div class="ui horizontal list" id="social">
+                <div class="item">
+                    <a href="https://linkedin.com/in/kbazoukis"><i class="linkedin large icon"></i></a>
+                </div>
+                <div class="item">
+                    <a href="https://github.com/NtinosNG"><i class="github large icon"></i></a>
+                </div>
+            </div>
+
+            <!-- Site's Footer -->
+            <footer class="ui list">
+                <div class="ui centered container">
+                    <div class="item">
+                        <p>{{ with .Site.Copyright }}{{ . | markdownify}}{{ end }}</p>
+                    </div>
+                    <div class="item">
+                        <p>Powered by <a href="http://gohugo.io/">Hugo</a> and <a href="https://github.com/ntinosng/self">Self</a></p>
+                    </div>
+                    <div class="item">
+                        <p>All Rights Reserved</p>
+                    </div>
+                </div>
+            </footer>
+
+        </div>
+    </section>
+
+    <!-- Divider Column -->
+    <section class=" one wide column"></section>
