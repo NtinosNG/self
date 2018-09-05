@@ -1,2 +1,2 @@
-# self
-A minimal theme for Hugo static site generator
+# Self
+## A minimal responsive theme for Hugo static site generator
