@@ -1,0 +1,36 @@
+# Your site's URL
+baseURL = "https://example.com/"
+languageCode = "en-us"
+
+# Your site's title
+title = "Self"
+
+theme = "self"
+
+# For displaying the copyright on the footer
+copyright = "&copy; Konstantinos Bazoukis 2018"
+
+# Set a number where pagination starts
+paginate = 10
+
+[params]
+    # Add your name
+    author = "Konstantinos Bazoukis"
+
+    # For the profile image add an image in 'static/img' folder
+    profileImage = "profile.jpg"
+
+    # Add your site's title
+    siteName = "Self Theme"
+
+    # Add your site's description
+    description = "Build a simple website for yourself!"
+
+    # Add the links of the social sites you want on your menu section
+    # For more social sites add its URL below and on the menu section change the html accordingly
+    linkedin = "https://linkedin.com/in/kbazoukis"
+    github = "https://github.com/NtinosNG"
+    facebook = "https://facebook.com/ntinosng"
+    instagram = "https://www.instagram.com/dinos_zoukis/"
+    twitter = "https://twitter.com/NtinosNG"
+
