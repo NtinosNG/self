@@ -1,0 +1,100 @@
+* { color: whitesmoke;  
+	text-decoration: none; 
+	margin: 0;
+}
+
+body {
+	background: rgb(90, 90, 90); 
+	font-family: 'Roboto', sans-serif !important;
+	margin: 2%;
+}
+
+.meta {
+	font-family: 'Roboto', sans-serif;
+}
+
+
+#mainMenu {
+	margin: 0 !important;
+	padding: 0 !important;
+}
+
+#contentSection {
+	margin: 0 !important;
+	padding: 0 !important;
+}
+
+p, 
+ul, 
+li {
+	color: whitesmoke;
+	font-size: 17px;
+	line-height: 27px;
+}
+
+
+.mainbg {
+	background: #363636 !important;
+}
+
+h1, 
+h2,
+h3, 
+h4,
+h5, 
+h6 {
+	font-family: 'Saira Extra Condensed', serif;
+	font-weight: 700;
+	text-transform: uppercase;
+}
+
+nav a, 
+nav i {
+	color: whitesmoke !important;
+	background: #363636 !important;
+}
+
+nav a:hover,
+nav i:hover,
+#social i:hover {
+	color: rgb(51, 189, 235) !important;
+}
+
+footer p {
+	color: whitesmoke;
+	font-size: 12px;
+	line-height: 22px;
+}
+
+
+#myContent, .menu {
+	background: #363636 !important;
+}
+
+
+h1, 
+#contentSection h1 >  i {
+	color: #ffffe0 !important;
+}
+
+h2,
+#myContent > h2 > sup > i {
+	color: lightskyblue !important;
+} 
+
+#tabMenu span, 
+#myContent span,
+.meta {
+	color: lightcyan !important;
+} 
+
+#tab {
+	background: #424242 !important;
+}
+
+@media screen and (max-width: 768px) {
+	body {
+		margin: 0;
+	}
+
+}
