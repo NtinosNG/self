@@ -15,22 +15,27 @@ paginate = 10
 
 [params]
     # Add your name
-    author = "Konstantinos Bazoukis"
+    author = "Your name"
 
     # For the profile image add an image in 'static/img' folder
-    profileImage = "profile.jpg"
+    profileImage = "profile.png"
 
     # Add your site's title
-    siteName = "Self Theme"
+    siteName = "Self Theme (title)"
 
     # Add your site's description
-    description = "Build a simple website for yourself!"
+    description = "Build a website for yourself! (description)"
 
     # Add the links of the social sites you want on your menu section
-    # For more social sites add its URL below and on the menu section change the html accordingly
-    linkedin = "https://linkedin.com/in/kbazoukis"
-    github = "https://github.com/NtinosNG"
-    facebook = "https://facebook.com/ntinosng"
-    instagram = "https://www.instagram.com/dinos_zoukis/"
-    twitter = "https://twitter.com/NtinosNG"
-
+    # To add more social sites, change on the menu section the html code 
+    # by simple copying and pasting the div from an existing social site 
+    # and change the name to the social site you want to add (the most popular are available)
+    # if you want to remove a social site, just comment out or delete the corresponding div
+    # after you change the html, just add the site and your profile's URL's below or comment it
+    # if you want to remove it from the menu
+    linkedin = "#"
+    github = "#"
+    facebook = "#"
+    instagram = "#"
+    twitter = "#"
+    snapchat = "#"
