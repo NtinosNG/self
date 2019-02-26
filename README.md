@@ -13,6 +13,9 @@ You can try it on your own by:
     > Hugo new site 'name of your site' (without the quotes)
 
 - Git clone this repository on the theme folder
+- Type the following command to run a local server to preview it:
+    
+    > Hugo Server
 
 ---
 
