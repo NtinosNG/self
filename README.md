@@ -10,7 +10,7 @@ You can try it on your own by:
 - Installing Hugo on your computer (more info for the installation process on Hugo's website) 
 - Opening a terminal or command prompt (for windows) and typing:
     
-    > Hugo new site name
+    > Hugo new site 'name of your site' (without the quotes)
 
 - Git clone this repository on the theme folder
 
@@ -19,7 +19,7 @@ You can try it on your own by:
 ### More information about my website and its design
 
 * https://github.com/NtinosNG/kbazoukis -> My Website's repository
-* https://ntinosng.github.io/kbazoukis/ -> A live demo of my website and this theme's design
+* https://kbazoukis.com/ -> A live demo of my website and basically, this theme's design
 
 ---
 
