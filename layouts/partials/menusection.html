@@ -7,10 +7,10 @@
 
             <header>
                 <!-- Site's Image -->
-                <a href="{{ "/" | relURL }}">
+                <a href="{{ `/` | relURL }}">
                     <div class="ui centered link card">
                         <div class="image">
-                            <img src="{{ (printf "/img/%s" $.Site.Params.profileImage) | relURL }}">
+                            <img src="{{ (printf `img/%s` $.Site.Params.profileImage) | relURL }}">
                         </div>
                     </div>
                 </a>
@@ -25,57 +25,109 @@
             <br>
 
             <!-- Site's Navigation -->
-            <nav class="ui container">
+            <nav class="ui container" id="nav">
                 <div class="ui container">
-                    <a href="/blog" class="ui labeled icon button">
+                    <a href="{{`/posts#contentSection` | relURL}}" class="ui labeled icon button">
                         <i class="bookmark large outline icon"></i> Posts
                     </a>
                 </div>
 
                 <div class="ui container">
-                    <a href="/projects" class="ui labeled icon button">
+                    <a href="{{`/projects#contentSection` | relURL}}" class="ui labeled icon button">
                         <i class="code large icon"></i> Projects
                     </a>
                 </div>
-                <div class="ui container">
-                    <a href="/cv" class="ui labeled icon button">
-                        <i class="address card large icon"></i> Curriculum
-                    </a>
-                </div>
+                {{if eq $.Site.Params.cv `true`}}
+                    <div class="ui container">
+                        <a href="{{`/cv` | relURL}}" class="ui labeled icon button">
+                            <i class="address card large icon"></i> Curriculum
+                        </a>
+                    </div>
+                {{end}}
             </nav>
 
             <br>
 
+
+            {{if ne $.Site.Params.AllDisabled `true`}}
             <!-- Social Buttons -->
             <div class="ui horizontal list" id="social">
-                <div class="item">
-                    <a href="{{$.Site.Params.linkedin}}"><i class="linkedin large icon"></i></a>
-                </div>
-                <div class="item">
-                    <a href="{{$.Site.Params.github}}"><i class="github large icon"></i></a>
-                </div>
-                <div class="item">
-                    <a href="{{$.Site.Params.facebook}}"><i class="facebook large icon"></i></a>
-                </div>
-                <div class="item">
-                    <a href="{{$.Site.Params.instagram}}"><i class="instagram large icon"></i></a>
-                </div>
-                <div class="item">
-                    <a href="{{$.Site.Params.twitter}}"><i class="twitter large icon"></i></a>
-                </div>
-                <div class="item">
-                    <a href="{{$.Site.Params.snapchat}}"><i class="snapchat large icon"></i></a>
-                </div>
+
+                <!-- linkedin Account Button -->
+                {{if ne $.Site.Params.linkedin `disable`}}
+                    <div class="item" id="linkedin">
+                        <a href="{{$.Site.Params.linkedin}}"><i class="linkedin large icon"></i></a>
+                    </div>
+                {{end}}
+
+                <!-- GitHub Account Button -->
+                {{if ne $.Site.Params.github `disable`}}
+                    <div class="item" id="github">
+                        <a href="{{$.Site.Params.github}}"><i class="github large icon"></i></a>
+                    </div>
+                {{end}}
+
+
+                <!-- Facebook Account Button -->
+                {{if ne $.Site.Params.facebook `disable`}}
+                    <div class="item" id="facebook">
+                        <a href="{{$.Site.Params.facebook}}"><i class="facebook large icon"></i></a>
+                    </div>
+                {{end}}
+
+
+                <!-- Instagram Account Button -->
+                {{if ne $.Site.Params.instagram `disable`}}
+                    <div class="item" id="instagram">
+                        <a href="{{$.Site.Params.instagram}}"><i class="instagram large icon"></i></a>
+                    </div>
+                {{end}}
+
+
+                <!-- Twitter Account Button -->
+                {{if ne $.Site.Params.twitter `disable`}}
+                    <div class="item" id="twitter">
+                        <a href="{{$.Site.Params.twitter}}"><i class="twitter large icon"></i></a>
+                    </div>
+                {{end}}
+
+
+                <!-- Snapchat Account Button -->
+                {{if ne $.Site.Params.snapchat `disable`}}
+                    <div class="item" id="snapchat">
+                        <a href="{{$.Site.Params.snapchat}}"><i class="snapchat large icon"></i></a>
+                    </div>
+                {{end}}
+
+
+                <!-- E-mail Button -->
+                {{if ne $.Site.Params.mail `disable`}}
+                    <div class="item" id="mail">
+                        <a href="mailto:{{$.Site.Params.mail}}"><i class="mail large icon"></i></a>
+                    </div>
+                {{end}}
+
+
             </div>
+
+            {{end}}
 
             <!-- Site's Footer -->
             <footer class="ui list">
                 <div class="ui centered container">
                     <div class="item">
-                        <p>{{ with .Site.Copyright }}{{ . | markdownify}}{{ end }}</p>
+                        <p>
+                            {{ with .Site.Copyright }}{{ . | markdownify}}{{ end }} 
+
+                            {{if eq $.Site.Params.year `true`}}
+                                <script type="text/javascript"> 
+                                    document.write( new Date().getFullYear()); 
+                                </script>  
+                            {{end}}
+                        </p> 
                     </div>
                     <div class="item">
-                        <p>Powered by <a href="http://gohugo.io/">Hugo</a> and <a href="https://github.com/ntinosng/self">Self</a></p>
+                        <p>Powered by <a href="http://gohugo.io/">Hugo</a> using <a href="https://github.com/ntinosng/self">Self</a> theme</p>
                     </div>
                     <div class="item">
                         <p>All Rights Reserved</p>

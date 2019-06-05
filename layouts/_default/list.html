@@ -1,2 +1,49 @@
-{{ partial "head.html" . }}
-{{ partial "menusection.html" . }}
+
+{{define "mainMenu"}}
+	{{ partial "menuSection.html" .}}
+{{end}}
+
+{{define "contentSection"}}
+
+<!-- Content Section -->
+<section class=" ten wide column" id="contentSection">
+    <div class="ui padded segment mainbg">
+
+{{ $numOfPosts := (len (where .Site.RegularPages "Section" "==" "posts")) }}
+{{ $numOfProjects := (len (where .Site.RegularPages "Section" "==" "projects")) }}
+
+  
+<!-- Section's Title -->
+<h1> <i class="{{if eq .Title `Projects` }} code icon {{else if eq .Title `Posts` }} bookmark outline icon {{else}} info circle icon {{end}}"></i> {{.Title}} <i class="caret right icon"></i> {{if eq .Title "Posts" }} # {{ $numOfPosts}} in total {{else if eq .Title "Projects"}} # {{$numOfProjects}} in total {{end}} </h1>
+
+{{ $title := .Title }}
+
+{{if eq .Kind "taxonomy"}}
+	<h1>TAG PAGE</h1>
+{{end}}
+
+
+
+<div class="ui divider"></div>
+
+
+	{{if and (eq $title "Posts") (eq $numOfPosts 0) }}
+
+		{{partial "noPosts.html"}}
+
+	{{end }}
+
+	{{ if and (eq $title "Projects") ( eq $numOfProjects 0) }}	
+
+		{{partial "noProjects.html"}}
+
+	{{end}}
+
+
+	{{partial "baseList" . }}
+
+
+</div>
+</section>
+
+{{end}}

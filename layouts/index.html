@@ -1,5 +1,4 @@
-{{ partial "head.html" . }}
-{{ partial "menusection.html" . }}
-{{ partial "contentsection.html" . }}
-{{ partial "about.html" . }}
-{{ partial "footer.html" . }}
+{{define "mainMenu"}}
+	{{ partial "menuSection.html" .}}
+	{{ partial "about.html" . }}
+{{end}}

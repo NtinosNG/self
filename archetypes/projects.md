@@ -1,7 +1,9 @@
 ---
 title: "{{ replace .Name "-" " " | title }}"
+postType: "Project"
 date: {{ .Date }}
-draft: true
+draft: false
+img_preview: "images/placeholder.jpg"
 description: "Description is not available."
 ---
 

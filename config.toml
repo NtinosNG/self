@@ -1,19 +1,37 @@
-# Your site's URL
-baseURL = "https://example.com/"
+# Your site's URL root folder. 
+#
+# For example, if your site is going to be served 
+# from whithin a folder such as "mysite", then you
+# should type the base url as:
+# 
+# http://sitedomain/mysite or https://sitedomain/mysite if you have a certificate
+#
+# This is important because Hugo will generate all the links
+# in your site relative to the baseURL typed here.
+
+baseURL = "http://localhost/public"
+
+# The default is English 
 languageCode = "en-us"
 
 # Your site's title
 title = "Self"
 
-theme = "self"
-
 # For displaying the copyright on the footer
-copyright = "&copy; Konstantinos Bazoukis 2018"
+copyright = "&copy; Your copyright"
 
 # Set a number where pagination starts
-paginate = 10
+paginate = 3
 
 [params]
+
+	# Enable copyright year (add `true` to enable)
+	# The year changes automatically
+	year = "true"
+
+	# If you don't want the curriculum section just add `false`
+	cv ="true"
+
     # Add your name
     author = "Your name"
 
@@ -27,15 +45,14 @@ paginate = 10
     description = "Build a website for yourself! (description)"
 
     # Add the links of the social sites you want on your menu section
-    # To add more social sites, change on the menu section the html code 
-    # by simple copying and pasting the div from an existing social site 
-    # and change the name to the social site you want to add (the most popular are available)
-    # if you want to remove a social site, just comment out or delete the corresponding div
-    # after you change the html, just add the site and your profile's URL's below or comment it
-    # if you want to remove it from the menu
+    # If you don't want a specific account just add "disable" 
+    # To disable all social buttons just add "true" to the `AllDisabled` variable
+
+    AllDisabled = "false"
     linkedin = "#"
     github = "#"
     facebook = "#"
     instagram = "#"
     twitter = "#"
     snapchat = "#"
+    mail = "#"

@@ -1,10 +1,4 @@
-{{ partial "head.html" . }}
-{{ partial "menusection.html" . }}
-{{ partial "contentsection.html" . }}
-
-<!-- content -->
-<article id="myContent">
-    <h1> <i class=" warning icon"></i> 404 Page not found <i class="caret right icon"></i></h1>
-</article>
-
-{{ partial "footer.html" . }}
+{{define "mainMenu"}}
+	{{ partial "menuSection.html" .}}
+	{{ partial "404.html" . }}
+{{end}}

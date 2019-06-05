@@ -1,0 +1,47 @@
+
+	{{ range .Paginator.Pages }}
+			<article id="myContent">
+					<div class="ui items">
+
+						<div class="item">
+							{{if eq .Params.postType `Project`}}
+							<div class="ui small centered image">
+								<img src="{{.Params.img_preview | relURL}}">
+							</div>
+							{{end}}
+							<div class="middle aligned content">
+								<h1> {{.Title}}</h1>
+								<div class="meta">
+									<span>{{ dateFormat "Monday, Jan 2, 2006" .Date }}</span>
+								</div>
+								<div class="meta">
+									<strong>Type:</strong> 
+									 {{ .Params.postType}}
+								</div>
+
+								<div class="meta">
+									{{ if .Params.tags }}
+									<strong>Tags:</strong> 
+										{{range .Params.tags}}
+											<a href="{{ `/tags/` | relLangURL }}{{ . | urlize }}#contentSection">{{ . }}</a>
+										{{end}}
+									{{end}}
+								</div>
+								<div class="description">
+									<p class="post"> {{.Description}}</p>
+								</div>
+								<div class="extra">
+									<button onclick="location.href='{{.URL}}#contentSection'" class="ui right floated blue tiny button">
+										Find Out More...
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</article>
+
+				<div class="ui divider"></div>
+
+	{{ end }}
+
+ 	{{ partial "pagination" . }}
