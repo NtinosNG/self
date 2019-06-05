@@ -9,8 +9,8 @@
 <section class=" ten wide column" id="contentSection">
     <div class="ui padded segment mainbg">
 
-{{ $numOfPosts := (len (where .Site.RegularPages "Section" "==" "posts")) }}
-{{ $numOfProjects := (len (where .Site.RegularPages "Section" "==" "projects")) }}
+{{ $numOfPosts := (len (where .Site.RegularPages "Section" "==" "post")) }}
+{{ $numOfProjects := (len (where .Site.RegularPages "Section" "==" "project")) }}
 
   
 <!-- Section's Title -->
@@ -21,7 +21,6 @@
 {{if eq .Kind "taxonomy"}}
 	<h1>TAG PAGE</h1>
 {{end}}
-
 
 
 <div class="ui divider"></div>

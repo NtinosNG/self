@@ -9,7 +9,9 @@
 # This is important because Hugo will generate all the links
 # in your site relative to the baseURL typed here.
 
-baseURL = "http://localhost/public"
+baseURL = "http://localhost:1313"
+
+theme = "self"
 
 # The default is English 
 languageCode = "en-us"
