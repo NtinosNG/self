@@ -31,9 +31,6 @@ paginate = 3
 	# The year changes automatically
 	year = "true"
 
-	# If you don't want the curriculum section just add `false`
-	cv ="true"
-
     # Add your name
     author = "Your name"
 
@@ -58,3 +55,24 @@ paginate = 3
     twitter = "#"
     snapchat = "#"
     mail = "#"
+
+
+    # If you don't want the curriculum section just add `false`
+    cv ="true"
+
+    # Tabs definition for the CV section
+    # There are five tabs supported at the moment based on the
+    # most usual categories that are used in curriculums.
+    # However, the reasons for creating this section is to provide a more
+    # dynamic cv and therefore you can add as much content as you
+    # need in each tab and adjust it as you like. Thus, if a category doesn't 
+    # suit you, for example, if instead of awards you want to add
+    # Languages or Seminars, you can easily change that tab below and
+    # add corresponding content. The whole section supports both list and single
+    # pages you can expect the same experience as with the other sections.
+
+    tab1 = "Experience"
+    tab2 = "Education"
+    tab3 = "Skills"
+    tab4 = "Awards"
+    tab5 = "Interests"

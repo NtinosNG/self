@@ -2,7 +2,6 @@
 {{ $pagination := $.Paginator }}
 
 {{ if gt $pagination.TotalPages 1 }}
-
   <div class="ui inverted pagination menu" id="pagination">
 
       <!-- Show the first page from the third page and later pages -->
@@ -29,7 +28,9 @@
     {{ if and (ne $pagination.PageNumber $pagination.TotalPages) ((ne $pagination.PageNumber (sub $pagination.TotalPages 1))) }}
       <a class="item" href="{{ $pagination.Last.URL }}#contentSection">Last »</a>
     {{end}}
-
+  
   </div>
 
 {{end}}
+
+  

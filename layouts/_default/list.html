@@ -1,6 +1,6 @@
 
 {{define "mainMenu"}}
-	{{ partial "menuSection.html" .}}
+	{{ partial "menuSection" . }}
 {{end}}
 
 {{define "contentSection"}}
@@ -8,39 +8,41 @@
 <!-- Content Section -->
 <section class=" ten wide column" id="contentSection">
     <div class="ui padded segment mainbg">
+			<button id="MaxSecBtn" onclick="MaxContentSection()" class="ui tiny brown right floated button"><i class="window maximize icon"></i></button>
+			<button id="MinSecBtn" onclick="MinContentSection()" class="ui tiny brown right floated button"> <i class="window restore icon"></i></button>
 
-{{ $numOfPosts := (len (where .Site.RegularPages "Section" "==" "post")) }}
-{{ $numOfProjects := (len (where .Site.RegularPages "Section" "==" "project")) }}
+{{ $numOfIndexPosts := (len .Site.RegularPages) }}
+{{ $currentTitle := .Title}}
+{{ $temp := ""}}
 
-  
+
 <!-- Section's Title -->
-<h1> <i class="{{if eq .Title `Projects` }} code icon {{else if eq .Title `Posts` }} bookmark outline icon {{else}} info circle icon {{end}}"></i> {{.Title}} <i class="caret right icon"></i> {{if eq .Title "Posts" }} # {{ $numOfPosts}} in total {{else if eq .Title "Projects"}} # {{$numOfProjects}} in total {{end}} </h1>
+<h1> 
+	<i class="{{ if eq .Title `Home` }} 
+					home icon 
+				{{else}} 
+					info circle icon 
+				{{end}}">
+	</i> {{.Title}} 
+	<i class="caret right icon"></i>
+		{{if ne $.Site.Params.postsCounter `disable`}} 
 
-{{ $title := .Title }}
-
-{{if eq .Kind "taxonomy"}}
-	<h1>TAG PAGE</h1>
-{{end}}
+			{{if eq .Title "Home" }} 
+				# {{ $numOfIndexPosts}} Overall
+			{{end}}
+		{{end}} 
+</h1>
 
 
 <div class="ui divider"></div>
 
+	{{ if and (eq .Title "self") ( eq $numOfIndexPosts 0) }}	
 
-	{{if and (eq $title "Posts") (eq $numOfPosts 0) }}
-
-		{{partial "noPosts.html"}}
-
-	{{end }}
-
-	{{ if and (eq $title "Projects") ( eq $numOfProjects 0) }}	
-
-		{{partial "noProjects.html"}}
+		{{partial "noHomePosts" . }}
 
 	{{end}}
 
-
-	{{partial "baseList" . }}
-
+	{{partial "homeList" . }}
 
 </div>
 </section>

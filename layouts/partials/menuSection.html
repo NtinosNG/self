@@ -1,5 +1,3 @@
-<!-- Main container -->
-<main class="ui three column stackable grid container">
 
     <!-- Main menu-->
     <section class="five wide center aligned column" id="mainMenu">
@@ -7,7 +5,7 @@
 
             <header>
                 <!-- Site's Image -->
-                <a href="{{ `/` | relURL }}">
+                <a href="{{ `/#contentSection` | relURL }}">
                     <div class="ui centered link card">
                         <div class="image">
                             <img src="{{ (printf `img/%s` $.Site.Params.profileImage) | relURL }}">
@@ -39,7 +37,7 @@
                 </div>
                 {{if eq $.Site.Params.cv `true`}}
                     <div class="ui container">
-                        <a href="{{`/cv` | relURL}}" class="ui labeled icon button">
+                        <a href="{{`/cv#contentSection` | relURL}}" class="ui labeled icon button">
                             <i class="address card large icon"></i> Curriculum
                         </a>
                     </div>
@@ -47,7 +45,6 @@
             </nav>
 
             <br>
-
 
             {{if ne $.Site.Params.AllDisabled `true`}}
             <!-- Social Buttons -->

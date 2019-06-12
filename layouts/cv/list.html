@@ -1,0 +1,40 @@
+
+{{define "mainMenu"}}
+	{{ partial "menuSection" .}}
+{{end}}
+
+{{define "contentSection"}}
+
+<!-- Content Section -->
+<section class=" ten wide column" id="contentSection">
+    <div class="ui padded segment mainbg">
+	<button id="MaxSecBtn" onclick="MaxContentSection()" class="ui tiny brown right floated button"><i class="window maximize icon"></i></button>
+	<button id="MinSecBtn" onclick="MinContentSection()" class="ui tiny brown right floated button"> <i class="window restore icon"></i></button>
+
+{{ $title := .Title }}
+
+{{ $numOfCV := (len (where .Site.RegularPages "Section" "==" "cv")) }}
+
+<!-- Section's Title -->
+<h1>
+	<i class="address card icon"></i> Curriculum <i class="caret right icon"></i>
+</h1>
+
+
+<div class="ui divider"></div>
+
+
+	{{if (and (eq $title "Curriculum") (eq $numOfCV 0)) }}
+
+		{{partial "noCV" . }}
+
+	{{else}}
+
+		{{partial "cvList" . }}
+
+	{{end}}
+
+</div>
+</section>
+
+{{end}}

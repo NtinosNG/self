@@ -1,0 +1,48 @@
+
+{{define "mainMenu"}}
+{{ partial "menuSection" . }}
+{{end}}
+
+{{define "contentSection"}}
+
+<!-- Content Section -->
+<section class=" ten wide column" id="contentSection">
+<div class="ui padded segment mainbg">
+        <button id="MaxSecBtn" onclick="MaxContentSection()" class="ui tiny brown right floated button"><i class="window maximize icon"></i></button>
+        <button id="MinSecBtn" onclick="MinContentSection()" class="ui tiny brown right floated button"> <i class="window restore icon"></i></button>
+
+{{ $numOfProjects := (len (where .Site.RegularPages "Section" "==" "project")) }}
+
+<!-- Section's Title -->
+<h1> 
+<i class="{{if eq .Title `Projects` }} 
+                code icon 
+            {{else if eq .Kind `taxonomy` }} 
+                tag icon 
+            {{else}} 
+                info circle icon 
+            {{end}}">
+</i> {{.Title}} 
+<i class="caret right icon"></i>
+    {{if ne $.Site.Params.postsCounter `disable`}} 
+        {{if eq .Title "Projects"}} 
+            # {{$numOfProjects}} in total 
+        {{end}} 
+    {{end}} 
+</h1>
+
+<div class="ui divider"></div>
+
+{{ if and (eq .Title "Projects") ( eq $numOfProjects 0) }}	
+
+    {{partial "noProjects" . }}
+
+{{end}}
+
+{{partial "projectList" . }}
+
+
+</div>
+</section>
+
+{{end}}

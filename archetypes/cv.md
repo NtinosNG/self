@@ -1,8 +1,9 @@
 ---
 title: "{{ replace .Name "-" " " | title }}"
-postType: "Home"
-subtitle: ""
+postType: "CV"
+tabNum: 0
 date: {{ .Date }}
 draft: false
-description: "Description was not provided."
+description: "Description is not available."
 ---
+

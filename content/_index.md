@@ -1,8 +1,7 @@
 ---
-title: "{{ replace .Name "-" " " | title }}"
+title: "Home"
 postType: "Home"
 subtitle: ""
-date: {{ .Date }}
 draft: false
 description: "Description was not provided."
 ---
