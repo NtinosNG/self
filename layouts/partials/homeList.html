@@ -10,7 +10,7 @@
 							{{end}}
 							<div class="middle aligned content">
 
-								<h1> {{.Title}} </h1>
+								<h1 id="listTitle"> {{.Title}} </h1>
 
 								<div class="ui relaxed horizontal list" id="metaSingle">
 
@@ -25,7 +25,7 @@
 										{{ if .Params.tags }}
 										<i class="tags icon"></i>
 										{{range .Params.tags}}
-											<a href="{{ `/tags/` | relLangURL }}{{ . | urlize }}#contentSection">{{ . }}</a>
+											<a href="{{ `/tags/` | relLangURL }}{{ . | urlize }}">#{{ . }}</a>
 											{{end}}
 										{{end}}
 										</div>
@@ -35,7 +35,7 @@
 										{{ if .Params.categories }}
 										<i class="object group outline icon"></i>
 										{{range .Params.categories}}
-											<a href="{{ `/categories/` | relLangURL }}{{ . | urlize }}#contentSection">{{ . }}</a>
+											<a href="{{ `/categories/` | relLangURL }}{{ . | urlize }}">{{ . }}</a>
 											{{end}}
 										{{end}}
 										</div>
@@ -48,8 +48,8 @@
 									<p class="post"> {{.Description}} </p>
 								</div>
 								<div class="extra">
-									<button onclick="location.href='{{.URL}}#contentSection'" class="ui right floated blue tiny button">
-										{{if eq .Params.postType `Project`}} Check Project... {{else if or (eq .Params.postType `Post`) (eq .Params.type `Home`) }} Read Post... {{end}}
+									<button onclick="location.href='{{.Permalink}}'" class="ui right floated blue tiny basic button">
+										{{if eq .Params.postType `Project`}} Check Project... {{else}} Read Post... {{end}}
 									</button>
 								</div>
 							</div>
@@ -62,10 +62,10 @@
 	{{ end }}
 
 <div class="ui items" id="extraDivInTags">
+		{{ partial "pagination" . }}
   <div class="extra" id="extraTags">
-	{{ partial "pagination" . }}
-
-  	{{if eq .Kind `taxonomy` }} <button id="prevExtraBtn" onclick="getPrevPage()" class="ui tiny green right floated button">Previous Page</button> {{end}}
+	
+		{{if eq .Kind `taxonomy` }} <button id="prevExtraBtn" onclick="getPrevPage()" class="ui tiny basic green right floated button">Previous Page</button> {{end}}
   </div>
 </div>
 

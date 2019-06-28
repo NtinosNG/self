@@ -1,81 +1,62 @@
-var windowStatus = "";
+var width = document.body.clientWidth;
+var contentSecInitWidth = $('#contentSection').width();
 
-// Change some css styles
-$(document).ready(function($) {
-  var alterMetaInSinglePage = function() {
-    var width = document.body.clientWidth;
+$( document ).ready(function() {
 
-    if (width < 540) {
+  // console.log('Document is ready!');
+  
+  $(window).resize(function(){
+    width = document.body.clientWidth;
 
-      $('#prevPageBtn').removeClass('right floated button');
-      $('#prevPageBtn').addClass('left floated button');
+    contentSecInitWidth = $('#contentSection').width();
 
-      $('#backToBtn').removeClass('right floated button');
-      $('#backToBtn').addClass('left floated button');
+    if(sessionStorage.getItem('Window Mode') === 'Maximized') {
+      MaxContentSection();
+     } 
 
-    } else if (width >= 541) {
-
-      $('#backToBtn').removeClass('left floated button');
-      $('#backToBtn').addClass('right floated button');
-
-   	  $('#prevPageBtn').removeClass('left floated button');
-      $('#prevPageBtn').addClass('right floated button');
-
-    };
-
-    if(width < 400) {
-
-      $('#prevExtraBtn').removeClass('right floated button');
-      $('#prevExtraBtn').addClass('left floated button');
-
-    } else if (width >= 401) {
-
-      $('#prevExtraBtn').removeClass('left floated button');
-      $('#prevExtraBtn').addClass('right floated button');
-      
+    if(sessionStorage.getItem('Window Mode') === 'Minimized') {
+      changeWidthToMin();
+      // console.log('Window is Minimized! Section Width: ' + contentSecInitWidth);
     }
 
-    // if(width < 768) {
-
-    // }
-
-    if (width < 390) {
-      $('#metaSingle').removeClass('horizontal');
-    } else if (width >= 391) {
-      $('#metaSingle').addClass('horizontal');
-    };
-
-  };
-  $(window).resize(function(){
-    alterMetaInSinglePage();
   });
 
-  alterMetaInSinglePage();
+  if(sessionStorage.getItem('Window Mode') === 'Maximized') {
+    MaxContentSection();
+  }
+
 });
 
-// Maximaze and minimize the single page window for better reading
-function MaxContentSection() {
-  document.getElementById("mainMenu").style.display = "none";
+const darkLightMode = document.getElementById('darkLightMode');
+const bulbIcon = document.getElementById('bulbIcon');
+const body = document.getElementsByTagName("body");
+var csslinks = document.getElementsByTagName("link");
+  
+darkLightMode.addEventListener("click", function() {
 
-  $('#contentSection').removeClass('ten wide column');
-  $('#contentSection').addClass('fourteen wide column');
+  let location = window.location.origin;
 
-  document.getElementById("MinSecBtn").style.display = "inline-block";
-  document.getElementById("MaxSecBtn").style.display = "none";
-  location.href = "#contentSection";
-}
+  if(localStorage.getItem('Color Mode') === 'Dark') {
+    csslinks[3].href = location + "/css/light.css";  
+    $(bulbIcon).removeClass('lightbulb icon');
+    $(bulbIcon).addClass('lightbulb outline icon');
+ 
+    localStorage.setItem('Color Mode','Light');
 
-function MinContentSection() {
+  } else if (localStorage.getItem('Color Mode') === 'Light') {
 
-  $('#contentSection').removeClass('fourteen wide column');
-  $('#contentSection').addClass('ten wide column');
+  csslinks[3].href = location + "/css/dark.css"; 
+  $(bulbIcon).removeClass('lightbulb outline icon');
+  $(bulbIcon).addClass('lightbulb icon'); 
 
-  document.getElementById("mainMenu").style.display = "inline-block";
+  localStorage.setItem('Color Mode','Dark');
+   
+  } else {
+    csslinks[3].href = location + "/css/light.css";   
+    localStorage.setItem('Color Mode','Light');   
+  }
 
-  document.getElementById("MinSecBtn").style.display = "none";
-  document.getElementById("MaxSecBtn").style.display = "inline-block";
-  location.href = "#contentSection";
-}
+});
 
 
 // Initalize tabular elements on the CV section
@@ -88,20 +69,275 @@ window.onscroll = function() {
 	// console.log("onscroll works");
 };
 
-function scrollFunction() {
-	// console.log("got in scrollFunction");
 
-  if (document.documentElement.scrollTop > 300 || document.body.scrollTop > 300) {
+const mainMenu = document.getElementById('mainMenu');
+const contentSection = document.getElementById('contentSection');
+const MaxMinContentSectionBtn = document.getElementById('MaxMinSecBtn');
+const winIcon = document.getElementById('winIcon');
+var btnPressed = false;
+
+
+var iframe = document.getElementsByTagName('iframe');
+var gist = document.getElementsByClassName('gist');
+var pre = document.getElementsByTagName('pre');
+
+
+var preCount = document.getElementsByTagName('pre').length;
+var gistCount = document.getElementsByClassName('gist').length;
+var iframeCount = document.getElementsByTagName('iframe').length;
+
+
+for (let index = 0; index < preCount; index++) {
+
+  if(pre[index]) {
+
+    var firstChildClass = pre[index].firstChild.className;
+
+    if(firstChildClass === "ui top attached blue label codeLabel") {
+        if(pre[index].getAttribute('data-line')) {
+          var lineNumbers = new Array();
+          
+          var increasedLineNumbers = new Array();
+          var lines = pre[index].getAttribute('data-line');
+
+          var delimiterPattern = /([-,])/g;
+          
+          lines.split(delimiterPattern).forEach(function(element) {
+
+          if(element === '-' || element === ',')
+          {
+            lineNumbers.push(element);
+          } else {
+            lineNumbers.push(Number(element) + Number(1));
+          }
+            
+          increasedLineNumbers = lineNumbers;
+
+          });
+
+          pre[index].dataset.line = increasedLineNumbers.join('');
+
+      }
+    }
+  }
+}
+
+
+function changeWidthToMax() {
+    
+  var contentSectionWidth = $('#contentSection').width();
+  // console.log('Window is maximized! Section Width: ' + contentSectionWidth);
+
+  var sectionWidth = contentSectionWidth - 50;
+
+  if(iframeCount) {
+    for (let index = 0; index <= iframeCount; index++) {
+      if(iframe[index].src.match("youtube") || iframe[index].src.match("vimeo")) {
+        iframe[index].setAttribute("style","position: absolute; top: 0; left: 0; width: 100% !important; height: 100%; border:0;");
+        // console.log('SRC: ' + iframe[index].src + '\nTitle: ' + iframe[index].title);
+      }  
+    }
+  }
+
+  if(gistCount){
+    for (let index = 0; index < gistCount; index++) {
+        gist[index].setAttribute("style", "width: " + sectionWidth + "px !important;");
+        // console.log('Gist ' + index + ' ID: ' + gist[index].id + 'Width changed to match maximized screen!' + '\n');
+    }
+  }
+
+
+  if(preCount) {
+
+      var dataStart = 0;
+      for (let index = 0; index < preCount; index++) {
+        
+        if(pre[index].getAttribute('data-start') === null){
+          dataStart = 0;
+        } else {
+          dataStart = pre[index].getAttribute('data-start') - 1;          
+        }
+
+        pre[index].setAttribute("style","width: " + sectionWidth + "px !important;" + "counter-reset: linenumber " + dataStart +" !important;"); 
+        // pre[index].setAttribute("style","counter-reset: linenumber " + pre[index].getAttribute('data-start') +" !important"); 
+         
+      }
+    }  
+}
+
+
+function changeWidthToMin() {
+
+  if (window.matchMedia('(min-width: 1200px)').matches)
+  {
+      if(gistCount){
+        for (let index = 0; index < gistCount; index++) {
+            gist[index].setAttribute("style", "width: 680px !important;");
+            // console.log('Gist ' + index + ' ID: ' + gist[index].id + 'Width changed to match minimized screen!' + '\n');
+        }
+      }
+
+      if(preCount) {
+        
+        var dataStart = 0;
+        for (let index = 0; index < preCount; index++) {
+         
+          if(pre[index].getAttribute('data-start') === null){
+            dataStart = 0;
+          } else {
+            dataStart = pre[index].getAttribute('data-start') - 1;          
+          }
+
+          pre[index].setAttribute("style","width: 680px !important;" + "counter-reset: linenumber " + dataStart + " !important;"); 
+        }
+      }
+
+  }
+
+  if (window.matchMedia('(min-width: 992px) and (max-width: 1199px)').matches)
+  {
+      if(gistCount){
+        for (let index = 0; index < gistCount; index++) {
+            gist[index].setAttribute("style", "width: 551px !important;");
+            // console.log('Gist ' + index + ' ID: ' + gist[index].id + 'Width changed to match minimized screen!' + '\n');
+        }
+      }
+
+      if(preCount) {
+        var dataStart = 0;
+        for (let index = 0; index < preCount; index++) {
+
+          if(pre[index].getAttribute('data-start') === null){
+            dataStart = 0;
+          } else {
+            dataStart = pre[index].getAttribute('data-start') - 1;          
+          }
+
+          pre[index].setAttribute("style","width: 551px !important;" + "counter-reset: linenumber " + dataStart + " !important;"); 
+        }
+      }
+  }
+
+  if (window.matchMedia('(min-width: 768px) and (max-width: 991px)').matches)
+  {
+      if(gistCount){
+        for (let index = 0; index < gistCount; index++) {
+            gist[index].setAttribute("style", "width: 430px !important;");
+            // console.log('Gist ' + index + ' ID: ' + gist[index].id + 'Width changed to match minimized screen!' + '\n');
+        }
+      }
+
+      if(preCount) {
+        var dataStart = 0;
+        for (let index = 0; index < preCount; index++) {
+
+          if(pre[index].getAttribute('data-start') === null){
+            dataStart = 0;
+          } else {
+            dataStart = pre[index].getAttribute('data-start') - 1;          
+          }
+
+          pre[index].setAttribute("style","width: 430px !important;" + "counter-reset: linenumber " + dataStart + " !important;"); 
+        }
+      }
+  }
+
+  if (window.matchMedia('(max-width: 767px)').matches)
+  {
+      if(gistCount){
+        for (let index = 0; index < gistCount; index++) {
+            gist[index].setAttribute("style", "width: 100%; !important;");
+            // console.log('Gist ' + index + ' ID: ' + gist[index].id + 'Width changed to match minimized screen!' + '\n');
+        }
+      }
+      
+      
+      if(preCount) {
+        var dataStart = 0;
+        for (let index = 0; index < preCount; index++) {
+
+          if(pre[index].getAttribute('data-start') === null){
+            dataStart = 0;
+          } else {
+            dataStart = pre[index].getAttribute('data-start') - 1;          
+          }
+
+          pre[index].setAttribute("style","width: 100% !important;" + "counter-reset: linenumber " + dataStart + " !important;"); 
+        }
+      }
+  }
+
+}
+
+
+MaxMinContentSectionBtn.addEventListener("click", function() {
+
+  if(btnPressed) {
+    MinContentSection();
+
+  } else {
+    MaxContentSection();
+  }
+
+});
+
+
+function MaxContentSection() {
+  mainMenu.style.display = "none";
+
+  $(contentSection).removeClass('ten wide column');
+  $(contentSection).addClass('sixteen wide column');
+
+  $(winIcon).removeClass('window maximize icon');
+  $(winIcon).addClass('window restore icon');
+
+  changeWidthToMax();
+
+  MaxMinContentSectionBtn.dataset.content = "Minimize";
+
+  sessionStorage.setItem('Window Mode','Maximized');
+  btnPressed = true;
+  // console.log('Window mode: ' + sessionStorage.getItem('Window Mode') + ' | Button pressed: ' + btnPressed);
+}
+
+function MinContentSection() {
+  
+  $(contentSection).removeClass('sixteen wide column');
+  $(contentSection).addClass('ten wide column');
+
+  changeWidthToMin();
+
+  mainMenu.style.display = "inline-block";
+  
+  $(winIcon).removeClass('window restore icon');
+  $(winIcon).addClass('window maximize icon');  
+
+  MaxMinContentSectionBtn.dataset.content = "Maximize";
+
+  sessionStorage.setItem('Window Mode','Minimized');
+  btnPressed = false;
+  // console.log('Window mode: ' + sessionStorage.getItem('Window Mode') + ' | Button pressed: ' + btnPressed);
+  // console.log('Window is Minimized! Section Width: ' + contentSecInitWidth);
+}
+
+
+function scrollFunction() {
+
+  if (document.documentElement.scrollTop > 720 || document.body.scrollTop > 720) {
+
     document.getElementById("myScrollBtn").style.display = "block";
-    // console.log("should have changed to block element");
+
+    if(width > 720)
+      document.getElementById("stickyMenu").style.display = "block";   
+
   } else {
     document.getElementById("myScrollBtn").style.display = "none";
-    // console.log("should have changed to none element");
+    document.getElementById("stickyMenu").style.display = "none";  
 
   }
 }
 
 function getPrevPage() {
- // location.href = document.referrer + "#contentSection";
- window.history.back();
+  window.history.back();
 }
+

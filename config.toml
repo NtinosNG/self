@@ -31,6 +31,20 @@ paginate = 3
 	# The year changes automatically
 	year = "true"
 
+    # By default the homepage is the About page,
+	# however, if you want you can enable posts on
+	# the homepage as well, just remove the disabled
+	# parameter of the `HomePosts` variable below. 
+	# Notice, that if homeposts are enabled it will show,
+	# all the posts from all sections including those that
+	# have been made on the index page.
+	HomePosts = "disabled"
+
+    # Enable Posts and Projects counter after the section's
+    # title. To disable it, add to the variable `disable` or
+    # leave it blank to enable
+    postsCounter = ""
+
     # Add your name
     author = "Your name"
 

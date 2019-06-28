@@ -1,11 +1,12 @@
 
     <!-- Main menu-->
     <section class="five wide center aligned column" id="mainMenu">
-        <div class="ui padded segment mainbg">
+        <div class="ui padded segment" id="mainbg">
 
             <header>
+
                 <!-- Site's Image -->
-                <a href="{{ `/#contentSection` | relURL }}">
+                <a href="{{ `/` | relURL }}">
                     <div class="ui centered link card">
                         <div class="image">
                             <img src="{{ (printf `img/%s` $.Site.Params.profileImage) | relURL }}">
@@ -14,34 +15,36 @@
                 </a>
 
                 <!-- Site's title -->
-                <h1>{{ $.Site.Params.siteName }}</h1>
+                <h1 id="siteTitle">{{ $.Site.Params.siteName }}</h1>
 
                 <!-- Site's subtitle/description -->
-                <h2>{{ $.Site.Params.description }}</h2>
+                <h2 id="siteDescription">{{ $.Site.Params.description }}</h2>
             </header>
 
             <br>
 
             <!-- Site's Navigation -->
             <nav class="ui container" id="nav">
-                <div class="ui container">
-                    <a href="{{`/post#contentSection` | relURL}}" class="ui labeled icon button">
-                        <i class="bookmark large outline icon"></i> Posts
-                    </a>
-                </div>
-
-                <div class="ui container">
-                    <a href="{{`/project#contentSection` | relURL}}" class="ui labeled icon button">
-                        <i class="code large icon"></i> Projects
-                    </a>
-                </div>
-                {{if eq $.Site.Params.cv `true`}}
-                    <div class="ui container">
-                        <a href="{{`/cv#contentSection` | relURL}}" class="ui labeled icon button">
-                            <i class="address card large icon"></i> Curriculum
+                <div class="ui large list">
+                    <div class="item">
+                        <a href="{{`/post` | relURL}}">
+                            <i class="bookmark large outline icon"></i> Posts
                         </a>
                     </div>
-                {{end}}
+
+                    <div class="item">
+                        <a  href="{{`/project` | relURL}}" >
+                            <i class="code large icon"></i> Projects
+                        </a>
+                    </div>
+                    {{if eq $.Site.Params.cv `true`}}
+                        <div class="item">
+                            <a href="{{`/cv` | relURL}}" >
+                                <i class="address card large icon"></i> Curriculum
+                            </a>
+                        </div>
+                    {{end}}
+                </div>
             </nav>
 
             <br>
@@ -133,7 +136,11 @@
             </footer>
 
         </div>
+       
+        {{ partial "stickyMenu" . }}
     </section>
 
+   
+
     <!-- Divider Column -->
-    <section class=" one wide column"></section>
+    <section class="one wide column" id="stickyCol"></section>

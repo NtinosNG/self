@@ -6,15 +6,15 @@
 {{define "contentSection"}}
 
 <!-- Content Section -->
-<section class=" ten wide column" id="contentSection">
-<div class="ui padded segment mainbg">
-        <button id="MaxSecBtn" onclick="MaxContentSection()" class="ui tiny brown right floated button"><i class="window maximize icon"></i></button>
-        <button id="MinSecBtn" onclick="MinContentSection()" class="ui tiny brown right floated button"> <i class="window restore icon"></i></button>
+<section class="ten wide column" id="contentSection">
+<div class="ui padded segment" id="mainbg">
+        <button id="MaxMinSecBtn" class="ui tiny basic grey right floated icon button" data-content="Maximize"><i id="winIcon" class="window maximize icon"></i></button>    
+		<button id="darkLightMode" class="ui tiny basic yellow icon button"  data-content="Dark"><i id="bulbIcon" class="lightbulb icon"></i></button>        
 
 {{ $numOfPosts := (len (where .Site.RegularPages "Section" "==" "post")) }}
 
 <!-- Section's Title -->
-<h1> 
+<h1 id="sectionTitle"> 
 <i class="{{if eq .Title `Posts` }} 
                 bookmark outline icon 
             {{else if eq .Kind `taxonomy` }} 
@@ -26,7 +26,7 @@
 <i class="caret right icon"></i>
     {{if ne $.Site.Params.postsCounter `disable`}} 
         {{if eq .Title "Posts" }} 
-            # {{ $numOfPosts}} in total 
+            # {{ $numOfPosts}} 
         {{end}}
     {{end}} 
 </h1>

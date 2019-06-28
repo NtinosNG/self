@@ -1,12 +1,12 @@
 
 {{define "mainMenu"}}
-
-	{{ partial "menuSection.html" .}}
-	
+	{{if eq $.Site.Params.cv `true`}}
+		{{ partial "menuSection.html" .}}
+	{{end}}	
 {{end}}
 
 {{define "contentSection"}}
-
-	{{partial "baseSingle" .}}
-
+	{{if eq $.Site.Params.cv `true`}}
+		{{partial "baseSingle" .}}
+	{{end}}
 {{end}}
