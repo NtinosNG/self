@@ -6,14 +6,15 @@ body {
 
 #mainbg,
 #myContent {
-	background: rgb(250, 250, 250) !important;
+	background: rgb(250, 250, 250);
 }
 
 #stickybg {
-	background: rgb(250, 250, 250) !important;
+	background: rgb(250, 250, 250);
 	border-radius: 100%;
 }
 
+p,h1,h2,h3,h4,h5,h6,
 #stickynav a,
 #nav a,
 #social a,
@@ -28,6 +29,17 @@ footer a {
 	color:  royalblue;
 }
 
+div#tab > a.item.active {
+	color: dodgerblue;
+	border-radius: 10px;
+}
+
+div#tab > a.item:hover {
+	color: dodgerblue;
+	border-color: black;
+	border-radius: 10px;
+}
+
 div#metaSingle div.meta > a:hover {
 	text-decoration: underline;
 	color: rgb(51, 189, 235);
@@ -36,8 +48,6 @@ div#metaSingle div.meta > a:hover {
 #stickynav a:hover,
 #nav a:hover,
 #social a:hover,
-footer a:hover,
-#tab a:hover,
-#tab > .active {
+footer a:hover {
 	color: dodgerblue;
 }

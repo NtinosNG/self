@@ -2,7 +2,7 @@
 title: "{{ replace .Name "-" " " | title }}"
 postType: "CV"
 subtitle: ""
-tabNum: 0
+tabTitle: ""
 date: {{ .Date }}
 draft: false
 description: "Description is not available."

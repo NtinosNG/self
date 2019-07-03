@@ -38,7 +38,7 @@ paginate = 3
 	# Notice, that if homeposts are enabled it will show,
 	# all the posts from all sections including those that
 	# have been made on the index page.
-	HomePosts = "disabled"
+	HomePosts = "disable"
 
     # Enable Posts and Projects counter after the section's
     # title. To disable it, add to the variable `disable` or

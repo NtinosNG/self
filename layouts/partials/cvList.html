@@ -1,1 +1,184 @@
-{{.Title}}
+
+<div id="tabMenu">
+    
+    <div class="ui stackable borderless secondary pointing menu" id="tab">
+        
+        <a id="tab1" style="display: none;" class="item active" data-tab="tab1">{{if $.Site.Params.tab1}} {{$.Site.Params.tab1}} {{else}} Tab 1 {{end}}</a>
+        <a id="tab2" style="display: none;" class="item" data-tab="tab2">{{if $.Site.Params.tab2}} {{$.Site.Params.tab2}} {{else}} Tab 2 {{end}}</a>
+        <a id="tab3" style="display: none;" class="item" data-tab="tab3">{{if $.Site.Params.tab3}} {{$.Site.Params.tab3}} {{else}} Tab 3 {{end}}</a>
+        <a id="tab4" style="display: none;" class="item" data-tab="tab4">{{if $.Site.Params.tab4}} {{$.Site.Params.tab4}} {{else}} Tab 4 {{end}}</a>
+        <a id="tab5" style="display: none;" class="item" data-tab="tab5">{{if $.Site.Params.tab5}} {{$.Site.Params.tab5}} {{else}} Tab 5 {{end}}</a>
+        
+    </div>
+    
+    <div class="ui divider"></div>
+
+    {{$tab1 := 0}}
+    {{$tab2 := 0}}
+    {{$tab3 := 0}}
+    {{$tab4 := 0}}
+    {{$tab5 := 0}}
+
+     
+		<!-- {{ $posts := (len (where .Pages ".Params.title" "eq" "JUNIOR WEB DESIGNER")) }}
+        {{ $posts }} -->
+    
+
+
+        {{ range .Pages.GroupByParam "tabTitle" }}
+        
+                {{if eq .Key $.Site.Params.tab1}}
+
+                <script>
+                    document.getElementById('tab1').style.display = "block";
+                </script>
+
+                    <article class="ui tab active" data-tab="tab1">
+                            {{ range .Pages }}
+                        <div class="ui items">
+                            <div class="item">
+                                <div class="middle aligned content">
+                                    <h1>{{.Title}}</h1>
+                                        <div class="meta">
+                                                {{if .Params.subtitle}}
+                                                    {{.Params.subtitle}}
+                                                {{end}}
+                                        </div>
+                                    
+                                    <div class="description">
+                                        <p>{{.Params.description}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ui divider"></div>
+                        {{end}}
+                    </article>
+
+                {{end}}
+
+                {{if eq .Key $.Site.Params.tab2}}
+
+                <script>
+                    document.getElementById('tab2').style.display = "block";
+                </script>
+
+                    <article class="ui tab" data-tab="tab2">
+                            {{ range .Pages }}
+                        <div class="ui items">
+                            <div class="item">
+                                <div class="middle aligned content">
+                                        <h1>{{.Title}}</h1>
+                                        <div class="meta">
+                                                {{if .Params.subtitle}}
+                                                    {{.Params.subtitle}}
+                                                {{end}}
+                                        </div>
+                                    
+                                    <div class="description">
+                                        <p>{{.Params.description}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ui divider"></div>
+                        {{end}}
+                    </article>
+
+                {{end}}
+
+                {{if eq .Key $.Site.Params.tab3}}
+
+                <script>
+                    document.getElementById('tab3').style.display = "block";
+                </script>
+
+                    <article class="ui tab" data-tab="tab3">
+                            {{ range .Pages }}
+                        <div class="ui items">
+                            <div class="item">
+                                <div class="middle aligned content">
+                                        <h1>{{.Title}}</h1>
+                                        <div class="meta">
+                                                {{if .Params.subtitle}}
+                                                    {{.Params.subtitle}}
+                                                {{end}}
+                                        </div>
+                                    
+                                    <div class="description">
+                                        <p>{{.Params.description}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ui divider"></div>
+                        {{end}}
+                    </article>
+
+                {{end}}
+
+                {{if eq .Key $.Site.Params.tab4}}
+
+                <script>
+                    document.getElementById('tab4').style.display = "block";
+                </script>
+
+                    <article class="ui tab" data-tab="tab4">
+                            {{ range .Pages }}
+                        <div class="ui items">
+                            <div class="item">
+                                <div class="middle aligned content">
+                                    <h1>{{.Title}}</h1>
+                                    <div class="meta">
+                                                {{if .Params.subtitle}}
+                                                    {{.Params.subtitle}}
+                                                {{end}}
+                                        </div>
+                                    
+                                    <div class="description">
+                                        <p>{{.Params.description}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ui divider"></div>
+                        {{end}}
+                    </article>
+
+                {{end}}
+
+                {{if eq .Key $.Site.Params.tab5}}
+
+                <script>
+                    document.getElementById('tab5').style.display = "block";
+                </script>
+
+                    <article class="ui tab" data-tab="tab5">
+                            {{ range .Pages }}
+                        <div class="ui items">
+                            <div class="item">
+                                <div class="middle aligned content">
+                                    <h1>{{.Title}}</h1>
+                                    <div class="meta">
+                                                {{if .Params.subtitle}}
+                                                    {{.Params.subtitle}}
+                                                {{end}}
+                                        </div>
+                                    
+                                    <div class="description">
+                                        <p>{{.Params.description}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ui divider"></div>
+                        {{end}}
+                    </article>
+
+                {{end}}
+
+        
+        {{end}}
+    
+
+</div>

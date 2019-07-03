@@ -25,6 +25,18 @@ div#mainbg > h1#singleTitle {
 	border-radius: 100%;
 }
 
+div.ui.pagination.menu {
+	background: rgb(45, 46, 47);
+}
+
+div.ui.pagination.menu a {
+	color: white;
+}
+
+div.ui.pagination.menu a.item.active {
+	color: white;
+	background: rgb(61, 62, 63);
+}
 
 #tab {
 	background: rgb(66,66,66);
@@ -59,10 +71,20 @@ div#tab > a.item.active {
 	border-radius: 10px;
 }
 
+div#tab > a.item:hover {
+	background: rgb(54, 54, 54);
+	color: rgb(51, 189, 235);
+	border-radius: 10px;
+}
+
+div.ui.pagination.menu a:hover {
+	background: rgb(61, 62, 63);
+}
+
 #stickynav a:hover,
 #nav a:hover,
 #social a:hover,
 footer a:hover,
-div#tab > a:hover {
+div.ui.pagination.menu a:hover {
 	color: rgb(51, 189, 235);
 }

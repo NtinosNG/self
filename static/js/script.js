@@ -3,8 +3,6 @@ var contentSecInitWidth = $('#contentSection').width();
 
 $( document ).ready(function() {
 
-  // console.log('Document is ready!');
-  
   $(window).resize(function(){
     width = document.body.clientWidth;
 
@@ -16,7 +14,6 @@ $( document ).ready(function() {
 
     if(sessionStorage.getItem('Window Mode') === 'Minimized') {
       changeWidthToMin();
-      // console.log('Window is Minimized! Section Width: ' + contentSecInitWidth);
     }
 
   });
@@ -66,7 +63,6 @@ $('.menu .item')
 // Adjust Scroll-to-Top button visibility
 window.onscroll = function() {
 	scrollFunction();
-	// console.log("onscroll works");
 };
 
 
