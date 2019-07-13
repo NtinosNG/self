@@ -1,8 +1,9 @@
 # This theme was designed from scratch for anyone to use it with Hugo, mostly
-# as a personal website, portfolio, blog or resume. It features a mininal
-# materialistic design and it's also responsive.
+# as a personal website, portfolio, blog or resume. While it has a mininal
+# materialistic design, it supports features that are expected to be found in
+# feature-rich themes and it's also responsive!
 
-# Visit https://ntinosng.github.io/self/ to see a demo
+# Visit https://selfttheme.netlify.com to see a demo
 
 name = "Self"
 license = "MIT"

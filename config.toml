@@ -25,7 +25,21 @@ copyright = "&copy; Your copyright"
 # Set a number where pagination starts
 paginate = 3
 
+# Google Analytics. Create an account and add your tracking ID to use.
+# Enable it by changing the analytics parameter at the [params] section to true.
+googleAnalytics = ""
+
+# Disqus commenting. Create a free account and add your shortname to use.
+# Enable it by changing the comments parameter at the [params] section to true.
+disqusShortname = ""
+
 [params]
+
+	# Enable Google Analytics
+	analytics = false
+
+	# Enable Disqus Commenting
+	comments = false
 
 	# Enable copyright year (add `true` to enable)
 	# The year changes automatically
@@ -44,6 +58,11 @@ paginate = 3
     # title. To disable it, add to the variable `disable` or
     # leave it blank to enable
     postsCounter = ""
+
+    # Enable CV counter after the section's title.
+    # To disable it, add to the variable `disable` or
+    # leave it blank to enable
+    cvCounter = "disable"
 
     # Add your name
     author = "Your name"

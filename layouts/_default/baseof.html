@@ -19,7 +19,10 @@
     <script>
         !function(){document.getElementsByTagName("link");var e,t=window.location.origin;"Light"===localStorage.getItem("Color Mode")?((e=document.createElement("link")).setAttribute("rel","stylesheet"),e.setAttribute("type","text/css"),e.setAttribute("href",t+"/css/light.css"),document.getElementsByTagName("head")[0].appendChild(e)):((e=document.createElement("link")).setAttribute("rel","stylesheet"),e.setAttribute("type","text/css"),e.setAttribute("href",t+"/css/dark.css"),document.getElementsByTagName("head")[0].appendChild(e))}();
     </script>
-    
+
+    {{if eq $.Site.Params.analytics true}}
+        {{ template "_internal/google_analytics.html" . }}
+    {{end}}
 </head>
 
 <body>

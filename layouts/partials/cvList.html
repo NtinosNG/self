@@ -13,18 +13,6 @@
     
     <div class="ui divider"></div>
 
-    {{$tab1 := 0}}
-    {{$tab2 := 0}}
-    {{$tab3 := 0}}
-    {{$tab4 := 0}}
-    {{$tab5 := 0}}
-
-     
-		<!-- {{ $posts := (len (where .Pages ".Params.title" "eq" "JUNIOR WEB DESIGNER")) }}
-        {{ $posts }} -->
-    
-
-
         {{ range .Pages.GroupByParam "tabTitle" }}
         
                 {{if eq .Key $.Site.Params.tab1}}
@@ -41,12 +29,32 @@
                                     <h1>{{.Title}}</h1>
                                         <div class="meta">
                                                 {{if .Params.subtitle}}
-                                                    {{.Params.subtitle}}
+                                                   <h3>{{.Params.subtitle}} {{if .Params.location}}<div class="ui right floated"><i class="map marker alternate icon"></i>{{.Params.location}}</div>{{end}}</h3> 
                                                 {{end}}
                                         </div>
-                                    
+                                    {{if .Content }}
+                                        <br>
                                     <div class="description">
-                                        <p>{{.Params.description}}</p>
+                                        {{if eq .Params.moreContent true}}
+                                            <p>{{.Params.description}}</p>
+                                        {{end}}
+
+                                        {{if eq .Params.moreContent false}}
+                                            <p>{{.Content}}</p>
+                                        {{end}}
+                                    </div>
+                                    {{end}}
+                                    <br>
+                                    <div class="extra">
+                                        {{if eq .Params.moreContent true}}
+                                        <button onclick="location.href='{{.RelPermalink}}'" class="ui blue tiny basic button">
+                                            Read More...
+                                        </button>
+                                        {{end}}
+
+                                        {{if .Params.startFinishDate}}
+                                            <div id="startFinishDate" class="ui right floated meta">{{.Params.startFinishDate}}</div>
+                                        {{end}}
                                     </div>
                                 </div>
                             </div>
@@ -71,12 +79,29 @@
                                         <h1>{{.Title}}</h1>
                                         <div class="meta">
                                                 {{if .Params.subtitle}}
-                                                    {{.Params.subtitle}}
+                                                   <h3>{{.Params.subtitle}} {{if .Params.location}}<div class="ui right floated"><i class="map marker alternate icon"></i>{{.Params.location}}</div>{{end}}</h3> 
                                                 {{end}}
                                         </div>
                                     
                                     <div class="description">
-                                        <p>{{.Params.description}}</p>
+                                            {{if eq .Params.moreContent true}}
+                                            <p>{{.Params.description}}</p>
+                                        {{end}}
+
+                                        {{if eq .Params.moreContent false}}
+                                            <p>{{.Content}}</p>
+                                        {{end}}
+                                    </div>
+                                    <div class="extra">
+                                        {{if eq .Params.moreContent true}}
+                                        <button onclick="location.href='{{.RelPermalink}}'" class="ui blue tiny basic button">
+                                            Read More...
+                                        </button>
+                                        {{end}}
+
+                                        {{if .Params.startFinishDate}}
+                                            <div  id="startFinishDate" class="ui right floated meta">{{.Params.startFinishDate}}</div>
+                                        {{end}}
                                     </div>
                                 </div>
                             </div>
@@ -101,12 +126,29 @@
                                         <h1>{{.Title}}</h1>
                                         <div class="meta">
                                                 {{if .Params.subtitle}}
-                                                    {{.Params.subtitle}}
+                                                   <h3>{{.Params.subtitle}} {{if .Params.location}}<div class="ui right floated"><i class="map marker alternate icon"></i>{{.Params.location}}</div>{{end}}</h3> 
                                                 {{end}}
                                         </div>
                                     
                                     <div class="description">
-                                        <p>{{.Params.description}}</p>
+                                            {{if eq .Params.moreContent true}}
+                                            <p>{{.Params.description}}</p>
+                                        {{end}}
+
+                                        {{if eq .Params.moreContent false}}
+                                            <p>{{.Content}}</p>
+                                        {{end}}
+                                    </div>
+                                    <div class="extra">
+                                        {{if eq .Params.moreContent true}}
+                                        <button onclick="location.href='{{.RelPermalink}}'" class="ui blue tiny basic button">
+                                            Read More...
+                                        </button>
+                                        {{end}}
+
+                                        {{if .Params.startFinishDate}}
+                                        <div  id="startFinishDate" class="ui right floated meta">{{.Params.startFinishDate}}</div>
+                                    {{end}}
                                     </div>
                                 </div>
                             </div>
@@ -130,13 +172,30 @@
                                 <div class="middle aligned content">
                                     <h1>{{.Title}}</h1>
                                     <div class="meta">
-                                                {{if .Params.subtitle}}
-                                                    {{.Params.subtitle}}
-                                                {{end}}
+                                            {{if .Params.subtitle}}
+                                            <h3>{{.Params.subtitle}} {{if .Params.location}}<div class="ui right floated"><i class="map marker alternate icon"></i>{{.Params.location}}</div>{{end}}</h3> 
+                                         {{end}}
                                         </div>
                                     
                                     <div class="description">
-                                        <p>{{.Params.description}}</p>
+                                            {{if eq .Params.moreContent true}}
+                                            <p>{{.Params.description}}</p>
+                                        {{end}}
+
+                                        {{if eq .Params.moreContent false}}
+                                            <p>{{.Content}}</p>
+                                        {{end}}
+                                    </div>
+                                    <div class="extra">
+                                        {{if eq .Params.moreContent true}}
+                                        <button onclick="location.href='{{.RelPermalink}}'" class="ui blue tiny basic button">
+                                            Read More...
+                                        </button>
+                                        {{end}}
+
+                                        {{if .Params.startFinishDate}}
+                                            <div  id="startFinishDate" class="ui right floated meta">{{.Params.startFinishDate}}</div>
+                                        {{end}}
                                     </div>
                                 </div>
                             </div>
@@ -159,14 +218,33 @@
                             <div class="item">
                                 <div class="middle aligned content">
                                     <h1>{{.Title}}</h1>
+
                                     <div class="meta">
-                                                {{if .Params.subtitle}}
-                                                    {{.Params.subtitle}}
-                                                {{end}}
-                                        </div>
+                                        {{if .Params.subtitle}}
+                                            <h3>{{.Params.subtitle}} {{if .Params.location}}<div class="ui right floated"><i class="map marker alternate icon"></i>{{.Params.location}}</div>{{end}}</h3> 
+                                         {{end}}
+                                    </div>
                                     
                                     <div class="description">
-                                        <p>{{.Params.description}}</p>
+                                            {{if eq .Params.moreContent true}}
+                                            <p>{{.Params.description}}</p>
+                                        {{end}}
+
+                                        {{if eq .Params.moreContent false}}
+                                            <p>{{.Content}}</p>
+                                        {{end}}
+                                    </div>
+                                    
+                                    <div class="extra">
+                                        {{if eq .Params.moreContent true}}
+                                        <button onclick="location.href='{{.RelPermalink}}'" class="ui blue tiny basic button">
+                                            Read More...
+                                        </button>
+                                        {{end}}
+
+                                        {{if .Params.startFinishDate}}
+                                            <div  id="startFinishDate" class="ui right floated meta">{{.Params.startFinishDate}}</div>
+                                        {{end}}
                                     </div>
                                 </div>
                             </div>

@@ -76,6 +76,10 @@
                                 </div>
                                 
                             </div>
+                            {{if eq $.Site.Params.comments true}}
+                                <div class="ui divider"></div>
+                                {{ template "_internal/disqus.html" . }} 
+                            {{end}}
                         </div>
                     </article>
     </div>

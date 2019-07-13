@@ -9,7 +9,7 @@ body {
 	background: rgb(54, 54, 54);
 }
 
-p,h1,h2,h3,h4,h5,h6, div#tab > a.item {
+p,h1,h2,h3,h4,h5,h6, ul, ol, div#tab > a.item {
 	color: rgb(220, 220, 220);
 }
 
@@ -44,7 +44,8 @@ div.ui.pagination.menu a.item.active {
 }
 
 div#metaSingle div.meta, 
-div#metaSingle div.meta > a {
+div#metaSingle div.meta > a,
+#startFinishDate {
 	color: lightblue;
 }
 
