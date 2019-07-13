@@ -3,13 +3,11 @@
 # materialistic design, it supports features that are expected to be found in
 # feature-rich themes and it's also responsive!
 
-# Visit https://selftheme.netlify.com/ to see a demo
-
 name = "Self"
 license = "MIT"
 licenselink = "https://github.com/NtinosNG/self/blob/master/LICENSE"
 description = "A simple two-column theme for building a website for yourself."
-homepage = "http://example.com/"
+homepage = "https://selftheme.netlify.com/"                                       # Visit to see a demo
 tags = ["personal","portfolio","blog","resume","curriculum"]
 features = ["responsive","minimal","material"]
 min_version = "0.41"
