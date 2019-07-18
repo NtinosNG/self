@@ -89,7 +89,7 @@ for (let index = 0; index < preCount; index++) {
 
     var firstChildClass = pre[index].firstChild.className;
 
-    if(firstChildClass === "ui top attached blue label codeLabel") {
+    if(firstChildClass === "ui top attached blue label") {
         if(pre[index].getAttribute('data-line')) {
           var lineNumbers = new Array();
           
@@ -154,7 +154,7 @@ function changeWidthToMax() {
           dataStart = pre[index].getAttribute('data-start') - 1;          
         }
 
-        pre[index].setAttribute("style","width: " + sectionWidth + "px !important;" + "counter-reset: linenumber " + dataStart +" !important;"); 
+        pre[index].setAttribute("style","width: " + sectionWidth + "px !important; " + "counter-reset: linenumber " + dataStart +" !important; position: relative;"); 
         // pre[index].setAttribute("style","counter-reset: linenumber " + pre[index].getAttribute('data-start') +" !important"); 
          
       }
@@ -184,7 +184,7 @@ function changeWidthToMin() {
             dataStart = pre[index].getAttribute('data-start') - 1;          
           }
 
-          pre[index].setAttribute("style","width: 680px !important;" + "counter-reset: linenumber " + dataStart + " !important;"); 
+          pre[index].setAttribute("style","width: 680px !important; " + "counter-reset: linenumber " + dataStart + " !important; position: relative;"); 
         }
       }
 
@@ -209,7 +209,7 @@ function changeWidthToMin() {
             dataStart = pre[index].getAttribute('data-start') - 1;          
           }
 
-          pre[index].setAttribute("style","width: 551px !important;" + "counter-reset: linenumber " + dataStart + " !important;"); 
+          pre[index].setAttribute("style","width: 551px !important; " + "counter-reset: linenumber " + dataStart + " !important; position: relative;"); 
         }
       }
   }
@@ -233,7 +233,7 @@ function changeWidthToMin() {
             dataStart = pre[index].getAttribute('data-start') - 1;          
           }
 
-          pre[index].setAttribute("style","width: 430px !important;" + "counter-reset: linenumber " + dataStart + " !important;"); 
+          pre[index].setAttribute("style","width: 430px !important; " + "counter-reset: linenumber " + dataStart + " !important; position: relative;"); 
         }
       }
   }
@@ -258,7 +258,7 @@ function changeWidthToMin() {
             dataStart = pre[index].getAttribute('data-start') - 1;          
           }
 
-          pre[index].setAttribute("style","width: 100% !important;" + "counter-reset: linenumber " + dataStart + " !important;"); 
+          pre[index].setAttribute("style","width: 100% !important; " + "counter-reset: linenumber " + dataStart + " !important; position: relative;"); 
         }
       }
   }
