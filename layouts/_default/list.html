@@ -25,7 +25,7 @@
 					info circle icon 
 				{{end}}">
 	</i> {{.Title}} 
-	<i class="caret right icon"></i>
+	<i class="{{if eq .Title `About`}}caret down icon{{else}}caret right icon{{end}}"></i>
 		{{if ne $.Site.Params.postsCounter `disable`}} 
 			{{if eq .Title "Home" }} 
 				# {{ $numOfIndexPosts}}
