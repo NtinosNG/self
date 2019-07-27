@@ -67,8 +67,9 @@ disqusShortname = ""
     # Add your name
     author = "Your name"
 
-    # For the profile image add an image in 'static/img' folder
-    profileImage = "profile.png"
+	# For the profile image, add the "name-of-your-image.extension" after the 
+    # /uploads/ directory on the profileImage parameter below
+    profileImage = "/uploads/profile.png"
 
     # Add your site's title
     siteName = "Self Theme (title)"
@@ -93,7 +94,7 @@ disqusShortname = ""
     # If you don't want the curriculum section just add `false`
     cv ="true"
 
-    # Tabs definition for the CV section
+    # Tabs definition for the CV section. Set it up if cv="true"
     # There are five tabs supported at the moment based on the
     # most usual categories that are used in curriculums.
     # However, the reasons for creating this section is to provide a more

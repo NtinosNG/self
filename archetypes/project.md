@@ -4,7 +4,9 @@ postType: "Project"
 subtitle: ""
 date: {{ .Date }}
 draft: false
-img_preview: "images/placeholder.jpg"
+img_preview: "uploads/placeholder.jpg"
 description: "Description is not available."
+tags: []
+categories: []
 ---
 

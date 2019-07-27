@@ -9,7 +9,7 @@
                 <a href="{{ `/` | relURL }}">
                     <div class="ui centered link card">
                         <div class="image">
-                            <img src="{{ (printf `img/%s` $.Site.Params.profileImage) | relURL }}">
+                            <img src="{{ $.Site.Params.profileImage | relURL }}">
                         </div>
                     </div>
                 </a>
@@ -19,6 +19,7 @@
 
                 <!-- Site's subtitle/description -->
                 <h2 id="siteDescription">{{ $.Site.Params.description }}</h2>
+
             </header>
 
             <br>
