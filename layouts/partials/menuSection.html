@@ -6,10 +6,10 @@
             <header>
 
                 <!-- Site's Image -->
-                <a href="{{ `/` | relURL }}">
+                <a href="{{ `/` | absURL }}">
                     <div class="ui centered link card">
                         <div class="image">
-                            <img src="{{ $.Site.Params.profileImage | relURL }}">
+                            <img src="{{ $.Site.Params.profileImage | absURL }}">
                         </div>
                     </div>
                 </a>
@@ -28,19 +28,19 @@
             <nav class="ui container" id="nav">
                 <div class="ui large list">
                     <div class="item">
-                        <a href="{{`/post` | relURL}}">
+                        <a href="{{`post` | absURL}}">
                             <i class="bookmark large outline icon"></i> Posts
                         </a>
                     </div>
 
                     <div class="item">
-                        <a  href="{{`/project` | relURL}}" >
+                        <a  href="{{`project` | absURL}}" >
                             <i class="code large icon"></i> Projects
                         </a>
                     </div>
                     {{if eq $.Site.Params.cv `true`}}
                         <div class="item">
-                            <a href="{{`/cv` | relURL}}" >
+                            <a href="{{`cv` | absURL}}" >
                                 <i class="address card large icon"></i> Curriculum
                             </a>
                         </div>

@@ -9,7 +9,7 @@
 # This is important because Hugo will generate all the links
 # in your site relative to the baseURL typed here.
 
-baseURL = "http://localhost:1313"
+baseURL = "https://example.com/"
 
 theme = "self"
 

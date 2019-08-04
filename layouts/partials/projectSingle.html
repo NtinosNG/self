@@ -74,7 +74,7 @@
                                             <button id="nextSecBtn" onclick="location.href='{{.NextInSection.Permalink}}'" class="ui tiny basic blue left floated button">Next Project</button>
                                         {{end}}
     
-                                        <button id="backToBtn" onclick="location.href='{{`/project` | relURL}}'" class="ui basic tiny red right floated button">Back to Projects</button>
+                                        <button id="backToBtn" onclick="location.href='{{`project` | absURL}}'" class="ui basic tiny red right floated button">Back to Projects</button>
     
                                         <button id="prevPageBtn" onclick="getPrevPage()" class="ui tiny basic green right floated button">Previous Page</button>
     

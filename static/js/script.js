@@ -128,10 +128,9 @@ function changeWidthToMax() {
 
   if(iframeCount) {
     for (let index = 0; index <= iframeCount; index++) {
-      if(iframe[index].src.match("youtube") || iframe[index].src.match("vimeo")) {
+      if(iframe[index] != undefined) {
         iframe[index].setAttribute("style","position: absolute; top: 0; left: 0; width: 100% !important; height: 100%; border:0;");
-        // console.log('SRC: ' + iframe[index].src + '\nTitle: ' + iframe[index].title);
-      }  
+      }
     }
   }
 

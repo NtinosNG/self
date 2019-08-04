@@ -74,7 +74,7 @@
 										class="ui tiny basic blue left floated button">Next</button>
 									{{end}}		
 										
-									<button id="backToBtn" onclick="location.href='{{if eq .Params.postType `Post` }} {{`/post` | relURL}} {{else if eq .Params.postType `Project`}} {{`/project` | relURL}} {{else}} {{`/` | relURL}}  {{end}}'
+									<button id="backToBtn" onclick="location.href='{{if eq .Params.postType `Post` }} {{`post` | absURL}} {{else if eq .Params.postType `Project`}} {{`project` | absURL}} {{else}} {{`/` | absURL}}  {{end}}'
 									" class="ui tiny basic red right floated button">Back to {{if eq .Params.postType `Project`}} Projects {{else if eq .Params.postType `Post` }} Posts {{else}} Home {{end}}</button>
 
 									<button id="prevPageBtn" onclick="getPrevPage()" class="ui tiny basic green right floated button">Previous Page</button>

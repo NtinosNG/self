@@ -5,7 +5,7 @@
 						<div class="item">
 							{{if eq .Params.postType `Project`}}
 								<div class="ui small centered image">
-									<img src="{{.Params.img_preview | relURL}}">
+									<img src="{{.Params.img_preview | absURL}}">
 								</div>
 							{{end}}
 							<div class="middle aligned content">
