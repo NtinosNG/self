@@ -128,8 +128,16 @@ function changeWidthToMax() {
 
   if(iframeCount) {
     for (let index = 0; index <= iframeCount; index++) {
-      if(iframe[index] != undefined) {
-        iframe[index].setAttribute("style","position: absolute; top: 0; left: 0; width: 100% !important; height: 100%; border:0;");
+      if(iframe[index] != undefined || iframe[index] != null) {
+        // iframe[index].setAttribute("style","position: absolute; top: 0; left: 0; width: 100% !important; height: 100%; border:0;");
+        if(iframe[index].src.match("vimeo") != undefined || iframe[index].src.match("vimeo") != null) {
+          iframe[index].setAttribute("style","position: absolute; top: 0; left: 0; width: 100% !important; height: 100%; border:0;");          
+          console.log(iframe[index].src.match("vimeo"));
+        }
+        else if (iframe[index].src.match("youtube") != undefined || iframe[index].src.match("youtube") != null) {
+          iframe[index].setAttribute("style","position: absolute; top: 0; left: 0; width: 100% !important; height: 100%; border:0;");          
+          console.log(iframe[index].src.match("youtube"));
+        }
       }
     }
   }
