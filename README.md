@@ -1,7 +1,7 @@
 # Self
 ## A minimal theme for HUGO static site generator
 
-<img src="./self-theme-preview.png" alt="self-theme-preview" width="850"/>
+<img src="images/screenshot.png" alt="self-theme-preview" width="850"/>
 
 > Theme's style preview
 

@@ -10,15 +10,26 @@
     <meta name="author" content="{{ .Site.Params.author }}">
     
     <title>{{ .Site.Title }}</title>
-    
+
     <!-- Stylesheets -->
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css"> -->
     <link rel="stylesheet" type="text/css" href="{{ `css/semantic.min.css` | absURL}}">
     <link rel="stylesheet" type="text/css" href="{{ `css/prism.css` | absURL}}">
     <link rel="stylesheet" type="text/css" href="{{ `css/main.css` | absURL }}"> 
+    <link rel="stylesheet" type="text/css" href="{{ `css/dark.css` | absURL }}"> 
+
     <script>
-        !function(){document.getElementsByTagName("link");var e,t=window.location.origin;"Light"===localStorage.getItem("Color Mode")?((e=document.createElement("link")).setAttribute("rel","stylesheet"),e.setAttribute("type","text/css"),e.setAttribute("href",t+"/css/light.css"),document.getElementsByTagName("head")[0].appendChild(e)):((e=document.createElement("link")).setAttribute("rel","stylesheet"),e.setAttribute("type","text/css"),e.setAttribute("href",t+"/css/dark.css"),document.getElementsByTagName("head")[0].appendChild(e))}();
-    </script>
+        (function() {
+           var links = document.getElementsByTagName("link");
+           var location = window.location.origin;
+           
+           if (localStorage.getItem('Color Mode') === 'Light') { 
+               links[3].href = location + "/css/light.css";             
+           } else {
+               links[3].href = location + "/css/dark.css";               
+           }      
+       })();
+   </script>
 
     {{if eq $.Site.Params.analytics true}}
         {{ template "_internal/google_analytics.html" . }}
