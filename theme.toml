@@ -9,7 +9,7 @@ licenselink = "https://github.com/NtinosNG/self/blob/master/LICENSE"
 description = "A simple two-column theme for building a website for yourself."
 homepage = "https://github.com/NtinosNG/self"
 tags = ["personal", "portfolio", "blog", "resume", "responsive", "google analytics", "disqus", "material design", "minimal"]
-features = ["blog", responsive", "minimal", "material design", "prism.js highlighting", "dark-light mode", "minimize-maximize mode", "pagination", "dynamic cv"]
+features = ["blog", "responsive", "minimal", "material design", "prism.js highlighting", "dark-light mode", "minimize-maximize mode", "pagination", "dynamic cv"]
 min_version = "0.41"
 
 [author]
