@@ -1,22 +1,14 @@
-# Your site's URL root folder. 
-#
-# For example, if your site is going to be served 
-# from whithin a folder such as "mysite", then you
-# should type the base url as:
-# 
-# http://sitedomain/mysite or https://sitedomain/mysite if you have a certificate
-#
 # This is important because Hugo will generate all the links
 # in your site relative to the baseURL typed here.
-
 baseURL = "https://example.com/"
 
+# This defines the theme that is used, which in this case is Self!
 theme = "self"
 
-# The default is English 
+# The default is English and its the only one supported for the time being.
 languageCode = "en-us"
 
-# Your site's title
+# Your site's title that will be added on the <title> tag on the <head> of your site's HTML.
 title = "Self"
 
 # For displaying the copyright on the footer

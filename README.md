@@ -1,77 +1,172 @@
 # Self
-## A minimal theme for HUGO static site generator
+## *Build a Website for yourself!*
+
 
 <img src="images/screenshot.png" alt="self-theme-preview" width="850"/>
 
-> Theme's style preview
+> Self's Design Preview
 
 ---
 
-After attempting to build my own personal website (https://github.com/NtinosNG/kbazoukis) by getting inspiration from various minimalistic themes for Hugo, I decided to convert my own design into a theme for Hugo so that it can be used by anyone.
+## Demo and Analytical Guide
 
-When ready, the theme will still be using Semantic-UI CSS framework for styling and responsiveness and Javascript for the various interactive parts (if any; it's still a work in progress) as I have already used for my personal website. It features 2 columns where the first is for navigation and the second is for any content. By default the 4 following sections will be included:
+The most recommended guide to install **Self** can be followed by visiting this [link](https://selfdemo.netlify.com/project/self-theme/) from its demo site as it contains detailed information which is ideal for non-technical people. After you read it make sure to check the POSTS section as it contains posts that explain how to use it afterwards (how to post content and what type of content is supported). However, you can see some parts from the demo guide in this README file.
 
-1. Home / About
-
-    > This is used as the about section but also the homepage. The profile photo is used as a Home/About button where you can navigate back from any other section.
-
-2. Posts 
-
-    > This section will be used as a blog where you can post whatever you want! 
-
-3. Projects
-
-    > This section is identical to the Posts section with the only difference that every project will have a preview picture on both the navigation and the main content page of each project.
-
-4. Curriculum
-
-    > This section will feature a tabular approach for a dynamic cv! Initially, it will have 4 columns: Experience, Education, Skills and Interests.
-
-
-Both the Posts and the Projects sections will show a timestamp and a rough estimation of how much time it will take the reader to read it, as well as pagination to keep things tidy. The navigation column, apart from the links to the sections, it also has various social sites. Initially it has the (ones that I think are the) most popular: LinkedIn, GitHub, Facebook, Instagram, Twitter and Snapchat, but you can change them by following the instructions on the config.toml file on the root folder of the theme. On this file you can also change the basic information at the navigation column such as the title, the description and add your own picture on the static/img folder on the theme's folder. 
-
-Finally, it should be noted that pretty much everything will be possible to change on the design (even CSS for the styling!) by editing the html code of a given section on the partials folder on theme's folder. Even if you don't have much experience, I believe that you will be able to remove, add or modify anything (such as the columns on the cv for example) as I have (tried to!) kept my code as simple and descriptive as possible!   
+<br/>
 
 ---
 
-You can try it on your own by doing the following simple steps:
+## General Information
 
-- Install Hugo on your operating system by following the corresponding installation process on https://gohugo.io/getting-started/installing/.
+Self is a theme that was designed from scratch for anyone to use with [HUGO](https://gohugo.io), mostly as a personal website, blog, or portfolio, but it also offers the option to build a dynamic CV! It has a mininal two-column materialistic design, it is responsive and has support for features such as Google Analytics and Disqus.
 
-- After installing Hugo (assuming globally), open a terminal or command prompt (for windows) and type:
-    
-    > Hugo new site 'name of your site' (without the quotes)
-
-- Next (assuming you have git installed on your computer), navigate on the theme folder and clone this repository.
-
-- After you have cloned the rep on the themes folder, navigate back on the root and open the config.toml with any editor and add the following line at the end:
-
-    > theme = "self"
-
-- After saving config.toml, type the following command to complile all the assets * :
-    
-    > Hugo 
-
-    *After typing Hugo, you might notice that a folder called 'public' appeared on the root. If you want to restart the process for any reason, just delete this folder and type the command again.
-
-- Finally, type the following command to preview the website on a local server:
-
-    > Hugo Server
-
-Currently, only the About/Home section is operational and editable as well as the information on the navigation column. The other sections are still "Under Construction"!
+Self was built using [**_Semantic-UI_**](https://semantic-ui.com) CSS framework for its styling and Javascript for the various interactive features that it supports.
 
 ---
 
-#### A live demo of my website and basically, this theme's design 
+## Getting Started
 
-* https://kbazoukis.com/
+Building your website with HUGO and Self is a three-step process. Here you'll find the requirements and the steps for the installation process.
 
+### Requirements
 
----
-
-#### More information about Hugo
-
-* https://gohugo.io -> Main Hugo website
-* https://themes.gohugo.io/tags/minimal/ -> Other minimalistic themes
+* [HUGO](https://github.com/gohugoio/hugo/releases/)
+* [Git](https://git-scm.com/downloads) (optional)
 
 
+## Step 1
+
+First, you need to download HUGO and install it globally for your operating system. Visit the link from the requirements above and download the latest release. Next, install HUGO globally by checking the official [guide](https://gohugo.io/getting-started/installing/) to find out how to do that for your operating system.
+
+After you've installed HUGO, you can verify its installation by running the following command on a terminal:
+
+```
+hugo version
+```
+
+## Step 2
+
+In this step, you'll build a new website with HUGO. First, open a terminal and navigate to a directory you want to build your site (this could be your Desktop for example):
+
+```
+cd <PATH OF SOME DIRECTORY>
+```
+
+Next, type the following command to build a HUGO website:
+
+```
+hugo new site <NAME OF YOUR SITE>
+```
+
+The *&lt;NAME OF YOUR SITE&gt;* could be anything and of course it should be without the &lt; and &gt; signs. Morever, it would be best to add a name without any spaces to prevent any errors from occuring.
+
+With the previous command, you have built a website with the name you provided. Navigate on that directory and you'll notice the following contents:
+
+- archetypes
+- content
+- data
+- layouts
+- static
+- themes 
+- config.toml
+
+Apart from the *confing.toml* file all the other contents are directories. At this point, you have the base structure of your site ready. All that is required now is to download Self. 
+
+## Step 3
+
+In this final step you're going to install Self and build your website. 
+
+Navigate to the *themes* directory in your website's directory that you'd build in the previous step and then if you have Git installed type the following command on your terminal:
+
+```
+git clone https://github.com/NtinosNG/self.git
+```
+
+This will clone Self theme on your themes directory. 
+
+If you don't have Git installed on your computer, you can either download it and install it by following the link from the requirements above, or you could click on -> clone or download -> Download ZIP. After it's downloaded, extract it and move it in the themes directory of your website. Then rename the directory from "self-master" to "self" (lower case as you see it) without the quotes. 
+
+At this point, there is one last part remaining before you can build your site. Navigate in the self directory and then copy the contents of the exampleSite directory. These contents should be:
+
+> content
+
+> config.toml
+
+Then, navigate back to the root of your website and paste those contents by replacing the existing ones. **This is important** because, the *content* directory you copied contains the necessary front matter for the content you'll be posting on your site while the *config.toml* contains the necessary configuration for building your site. Furthermore, if you don't do that you'll probably run into some errors after you build your site.
+
+After you've copied *exampleSite's* contents, you are finally ready to build your site. Just open a terminal on the root of your website and simply type:
+
+```
+hugo
+```
+
+If everything went well, you should see something like that:
+
+```
+$ hugo
+Building sites …
+                   | EN
++------------------+----+
+  Pages            | 13
+  Paginator pages  |  0
+  Non-page files   |  3
+  Static files     | 41
+  Processed images |  0
+  Aliases          |  2
+  Sitemaps         |  1
+  Cleaned          |  0
+
+Total in 1513 ms
+```
+
+You should also be able to see a directory named *public* in your root.
+
+Lastly, you can see your newly built site by running a local server with hugo by typing the following command on your root:
+
+```
+hugo server
+```
+
+## Setting up config.toml
+
+Now that you have built the website, the first action that is required to start setting up your site by editing the configuration file "***config.toml***". 
+
+This file contains some required settings and some other optional ones which will enable or disable some features that you might want to use or not. When you open it you'll see the following settings:
+
+- baseURL = "[https://example.com](https://example.com)"
+- theme = "self"
+- languageCode = "en-us"
+- title = "Self"
+- copyright = "&ampcopy; Your copyright"
+- paginate = 3
+- googleAnalytics = " "
+- disqusShortname = " "
+
+### \[params\] 
+
+- analytics = false
+- comments = false
+- year = "true"
+- HomePosts = "disable"
+- postsCounter = ""
+- cvCounter = "disable"
+- author = "Your name"
+- profileImage = "/uploads/profile.png"
+- siteName = "Self Theme (title)"
+- description = "Build a website for yourself! (description)"
+- AllDisabled = "false"
+- linkedin = "#"
+- github = "#"
+- facebook = "#"
+- instagram = "#"
+- twitter = "#"
+- snapchat = "#"
+- mail = "#"
+- cv ="true"
+- tab1 = "Experience"
+- tab2 = "Education"
+- tab3 = "Skills"
+- tab4 = "Awards"
+- tab5 = "Interests"
+
+You can start setting it up by reading the explanatory comments above each setting that start with # hashtags.
