@@ -2,7 +2,7 @@
 ## *Build a Website for yourself!*
 
 
-<img src="images/screenshot.png" alt="self-theme-preview" width="850"/>
+<img src="https://raw.githubusercontent.com/NtinosNG/self/master/images/screenshot.png" alt="self-theme-preview" width="850"/>
 
 > Self's Design Preview
 
