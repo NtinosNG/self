@@ -3,7 +3,7 @@
 baseURL = "https://example.com/"
 
 # This defines the theme that is used, which in this case is Self!
-theme = "self"
+theme = "../.."
 
 # The default is English and its the only one supported for the time being.
 languageCode = "en-us"
@@ -61,7 +61,7 @@ disqusShortname = ""
 
 	# For the profile image, add the "name-of-your-image.extension" after the 
     # /uploads/ directory on the profileImage parameter below
-    profileImage = "/uploads/profile.png"
+    profileImage = "uploads/profile.png"
 
     # Add your site's title
     siteName = "Self Theme (title)"
@@ -83,8 +83,11 @@ disqusShortname = ""
     mail = "#"
 
 
-    # If you don't want the curriculum section just add `false`
-    cv ="true"
+    # If you want the curriculum section just add `true`
+    cv ="false"
+
+    # If you don't want the project section just add `true`
+    project ="false"
 
     # Tabs definition for the CV section. Set it up if cv="true"
     # There are five tabs supported at the moment based on the

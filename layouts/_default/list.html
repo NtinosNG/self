@@ -24,8 +24,17 @@
 				{{else}} 
 					info circle icon 
 				{{end}}">
-	</i> {{.Title}} 
-	<i class="{{if eq .Title `About`}}caret down icon{{else}}caret right icon{{end}}"></i>
+	</i> {{with .Title}}
+	{{ . }}
+		<i class="{{if eq . `About`}}caret down icon{{else}}caret right icon{{end}}"></i>
+			{{ else }} 
+			{{ range (.Site.Pages.ByParam "postType") }}
+				{{ if eq .Params.postType "About" }}
+					{{.Title}} 
+					<i class="{{if eq .Title `About`}}caret down icon{{else}}caret right icon{{end}}"></i>
+				{{end}}
+			{{end}}
+			{{end}}
 		{{if ne $.Site.Params.postsCounter `disable`}} 
 			{{if eq .Title "Home" }} 
 				# {{ $numOfIndexPosts}}
@@ -51,9 +60,9 @@
 		{{partial "homeList" . }}
 
 	{{end}}
-
+	{{ if .IsHome }}
 	{{partial "about" . }}
-
+	{{ end }}
 {{end}} 
 
 	

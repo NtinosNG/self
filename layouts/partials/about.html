@@ -1,12 +1,14 @@
 <!-- content -->
 <article id="myContent">
-
-	{{if .Params.subtitle}}
-		<h2 id="singleSubtitle">{{.Params.subtitle}}</h2>
-	{{end}}
+{{ range ($.Site.RegularPages.ByParam "postType") }}
+{{ if eq .Params.postType "About" }}
+	{{ with .Params.subtitle }}
+		<h2 id="singleSubtitle">{{ . }}</h2>
+	{{ end }}
 
      <p>
-        {{.Content}}
+        {{ .Content }}
      </p>
-
+{{ end }}
+{{ end }}
 </article>
