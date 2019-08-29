@@ -1,0 +1,19 @@
+                    <div class="item">
+                        <a href="{{`post` | absURL}}">
+                            <i class="bookmark large outline icon"></i> Posts
+                        </a>
+                    </div>
+                    {{if eq $.Site.Params.project `true`}}
+                    <div class="item">
+                        <a  href="{{`project` | absURL}}" >
+                            <i class="code large icon"></i> Projects
+                        </a>
+                    </div>
+                    {{end}}
+                    {{if eq $.Site.Params.cv `true`}}
+                        <div class="item">
+                            <a href="{{`cv` | absURL}}" >
+                                <i class="address card large icon"></i> Curriculum
+                            </a>
+                        </div>
+                    {{end}}

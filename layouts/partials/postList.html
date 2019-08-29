@@ -1,5 +1,5 @@
-{{ range .Paginator.Pages }}
-
+{{ $paginator :=  .Paginate ( where .Pages "Type" "in" site.Params.mainSections ) }}
+          {{ range $paginator.Pages }}
 <article id="myContent">
     <div class="ui items">
         <div class="item">
@@ -21,7 +21,7 @@
                             {{ if .Params.tags }}
                             <i class="tags icon"></i>
                             {{range .Params.tags}}
-                            <a href="{{ `/tags/` | relLangURL }}{{ . | urlize }}">#{{ . }}</a>
+                            <a href="{{ `tags/` | relLangURL }}{{ . | urlize }}">#{{ . }}</a>
                             {{end}}
                             {{end}}
                         </div>
@@ -31,7 +31,7 @@
                             {{ if .Params.categories }}
                             <i class="object group outline icon"></i>
                             {{range .Params.categories}}
-                            <a href="{{ `/categories/` | relLangURL }}{{ . | urlize }}">{{ . }}</a>
+                            <a href="{{ `categories/` | relLangURL }}{{ . | urlize }}">{{ . }}</a>
                             {{end}}
                             {{end}}
                         </div>
@@ -43,7 +43,7 @@
                     <p class="post"> {{.Description}} </p>
                 </div>
                 <div class="extra">
-                    <button onclick="location.href='{{.RelPermalink}}'" class="ui right floated blue tiny basic button">
+                    <button onclick="location.href='{{ .Permalink }}'" class="ui right floated blue tiny basic button">
                         Read Post...
                     </button>
                 </div>

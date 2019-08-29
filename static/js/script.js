@@ -24,37 +24,6 @@ $( document ).ready(function() {
 
 });
 
-const darkLightMode = document.getElementById('darkLightMode');
-const bulbIcon = document.getElementById('bulbIcon');
-const body = document.getElementsByTagName("body");
-var csslinks = document.getElementsByTagName("link");
-  
-darkLightMode.addEventListener("click", function() {
-
-  let location = window.location.origin;
-
-  if(localStorage.getItem('Color Mode') === 'Dark') {
-    csslinks[3].href = location + "/css/light.css";  
-    $(bulbIcon).removeClass('lightbulb icon');
-    $(bulbIcon).addClass('lightbulb outline icon');
- 
-    localStorage.setItem('Color Mode','Light');
-
-  } else if (localStorage.getItem('Color Mode') === 'Light') {
-
-  csslinks[3].href = location + "/css/dark.css"; 
-  $(bulbIcon).removeClass('lightbulb outline icon');
-  $(bulbIcon).addClass('lightbulb icon'); 
-
-  localStorage.setItem('Color Mode','Dark');
-   
-  } else {
-    csslinks[3].href = location + "/css/light.css";   
-    localStorage.setItem('Color Mode','Light');   
-  }
-
-});
-
 
 // Initalize tabular elements on the CV section
 $('.menu .item')
