@@ -1,97 +1,104 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-
+  <head>
     <!-- Standard Meta -->
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-    <meta name="author" content="{{ .Site.Params.author }}">
-    
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0"
+    />
+    <meta name="author" content="{{ .Site.Params.author }}" />
+
     <title>{{ .Site.Title }}</title>
 
     <!-- Stylesheets -->
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css"> -->
-    <link rel="stylesheet" type="text/css" href="{{ `css/semantic.min.css` | absURL}}">
-    <link rel="stylesheet" type="text/css" href="{{ `css/prism.css` | absURL}}">
-    <link rel="stylesheet" type="text/css" href="{{ `css/main.css` | absURL }}"> 
-    <link rel="stylesheet" type="text/css" href="{{ `css/dark.css` | absURL }}"> 
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ `css/semantic.min.css` | relURL}}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ `css/prism.css` | relURL}}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ `css/main.css` | relURL }}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ `css/dark.css` | relURL }}"
+    />
 
     <script>
-        (function() {
-           var links = document.getElementsByTagName("link");
-           var location = window.location.origin;
-           
-           if (localStorage.getItem('Color Mode') === 'Light') { 
-               links[3].href = "{{ `css/light.css` | absURL }}";             
-           } else {
-               links[3].href = "{{ `css/dark.css` | absURL }}";               
-           }      
-       })();
-   </script>
+      (function () {
+        var links = document.getElementsByTagName("link");
+        var location = window.location.origin;
 
-    {{if eq $.Site.Params.analytics true}}
-        {{ template "_internal/google_analytics.html" . }}
-    {{end}}
-</head>
+        if (localStorage.getItem("Color Mode") === "Light") {
+          links[3].href = "{{ `css/light.css` | relURL }}";
+        } else {
+          links[3].href = "{{ `css/dark.css` | relURL }}";
+        }
+      })();
+    </script>
 
-<body>
-    
+    {{if eq $.Site.Params.analytics true}} {{ template
+    "_internal/google_analytics.html" . }} {{end}}
+  </head>
+
+  <body>
     <!-- Main container -->
     <main class="ui three column stackable grid container">
-        
-        {{ block "mainMenu" . }}
-        
-        {{end}}
-        
-        {{ block "contentSection" . }}
-        
-        {{end}}
-        
+      {{ block "mainMenu" . }} {{end}} {{ block "contentSection" . }} {{end}}
     </main>
-    
+
     <!-- Sites Scripts -->
     <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
     <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script> -->
-    <script type="text/javascript" src="{{`js/jquery-3.4.1.min.js` | absURL}}"></script>
-    <script type="text/javascript" src="{{ `js/semantic.min.js` | absURL }}"></script>
-    <script type="text/javascript" src="{{ `js/script.js` | absURL }}"></script>
+    <script
+      type="text/javascript"
+      src="{{`js/jquery-3.4.1.min.js` | relURL}}"
+    ></script>
+    <script
+      type="text/javascript"
+      src="{{ `js/semantic.min.js` | relURL }}"
+    ></script>
+    <script type="text/javascript" src="{{ `js/script.js` | relURL }}"></script>
     <script>
-      const darkLightMode = document.getElementById('darkLightMode');
-const bulbIcon = document.getElementById('bulbIcon');
-const body = document.getElementsByTagName("body");
-var csslinks = document.getElementsByTagName("link");
-  
-darkLightMode.addEventListener("click", function() {
+      const darkLightMode = document.getElementById("darkLightMode");
+      const bulbIcon = document.getElementById("bulbIcon");
+      const body = document.getElementsByTagName("body");
+      var csslinks = document.getElementsByTagName("link");
 
-  let location = window.location.origin;
+      darkLightMode.addEventListener("click", function () {
+        let location = window.location.origin;
 
-  if(localStorage.getItem('Color Mode') === 'Dark') {
-    csslinks[3].href = "{{ `css/light.css` | relURL }}";  
-    $(bulbIcon).removeClass('lightbulb icon');
-    $(bulbIcon).addClass('lightbulb outline icon');
- 
-    localStorage.setItem('Color Mode','Light');
+        if (localStorage.getItem("Color Mode") === "Dark") {
+          csslinks[3].href = "{{ `css/light.css` | relURL }}";
+          $(bulbIcon).removeClass("lightbulb icon");
+          $(bulbIcon).addClass("lightbulb outline icon");
 
-  } else if (localStorage.getItem('Color Mode') === 'Light') {
+          localStorage.setItem("Color Mode", "Light");
+        } else if (localStorage.getItem("Color Mode") === "Light") {
+          csslinks[3].href = "{{ `css/dark.css` | relURL }}";
+          $(bulbIcon).removeClass("lightbulb outline icon");
+          $(bulbIcon).addClass("lightbulb icon");
 
-  csslinks[3].href = "{{ `css/dark.css` | absURL }}"; 
-  $(bulbIcon).removeClass('lightbulb outline icon');
-  $(bulbIcon).addClass('lightbulb icon'); 
-
-  localStorage.setItem('Color Mode','Dark');
-   
-  } else {
-    csslinks[3].href = "{{ `css/light.css` | absURL }}";   
-    localStorage.setItem('Color Mode','Light');   
-  }
-
-});
+          localStorage.setItem("Color Mode", "Dark");
+        } else {
+          csslinks[3].href = "{{ `css/light.css` | relURL }}";
+          localStorage.setItem("Color Mode", "Light");
+        }
+      });
     </script>
-    <script type="text/javascript" src="{{ `js/prism.js` | absURL }}"></script>
-    
+    <script type="text/javascript" src="{{ `js/prism.js` | relURL }}"></script>
+
     <a href="#" id="myScrollBtn"> <i class="large arrow up icon"></i></a>
-    
-</body>
+  </body>
 </html>
